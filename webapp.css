@@ -1,0 +1,280 @@
+body {
+  margin: 0;
+}
+
+/* HEADER */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+  margin: 0 3%;
+}
+
+.header_left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+}
+
+.img_cont {
+  background: url(img/logo.png) no-repeat;
+  background-size: contain;
+  text-align: center;
+  max-width: 100%;
+  height: 10vh;
+  width: 12vw;
+  overflow: auto;
+}
+
+.top_text {
+  color: #c0d4e3;
+  font-size: 14px;
+  margin: 0 0 0 10px;
+  font-weight: lighter;
+}
+
+.header_right {
+  background: linear-gradient(90deg, #0162c8, #55e7fc);
+  border-radius: 30px;
+  padding: 1.5vh 3vw;
+  box-shadow: 0 2px 2px #00bfff;
+}
+
+.header_right a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+/* MAIN */
+
+.main {
+  background-color: #f5f5f5;
+}
+
+.main_section {
+  margin: 0 8%;
+  padding: 3vh 0;
+  overflow: auto;
+  position: relative;
+  height: 85vh;
+}
+
+.left {
+  float: left;
+  width: 50%;
+}
+
+/* TOP LEFT */
+
+.top_left {
+  display: flex;
+  width: 100%;
+  height: 20vh;
+}
+
+.hour {
+  width: 32%;
+  margin-left: 1.3vw;
+  background-color: #ffffff;
+  text-align: center;
+  border-radius: 10%;
+}
+
+.hour:first-child {
+  margin-left: 0;
+}
+
+.hour_title {
+  color: #0f70bb;
+  font-size: 15px;
+  margin-bottom: 0;
+}
+
+.hour_number {
+  margin: 0;
+}
+
+.hour_hour {
+  color: #9bbcd3;
+  font-size: 15px;
+  margin-top: 0;
+  font-weight: lighter;
+}
+
+/* BOTTOM LEFT */
+
+.bottom_left {
+  width: 100%;
+  margin-top: 3vh;
+  overflow: hidden;
+  border-radius: 3%;
+  height: 50vh;
+}
+
+.bottom_left img {
+  width: 100%;
+  height: 50vh;
+  background-size: contain;
+}
+
+/* BOTTOM LEFT */
+
+.right {
+  width: 50%;
+  float: right;
+  display: flex;
+}
+
+.pie {
+  background-color: #ffffff;
+  border-radius: 5%;
+  margin-left: 1.3vw;
+  width: 50%;
+  height: 73vh;
+}
+
+.gakushu {
+  font-size: 20px;
+  margin: 4vh 0 0 1.3vw;
+}
+
+/* BOTTOM */
+
+.bottom {
+  width: 100%;
+  position: absolute;
+  height: 10vh;
+  bottom: 1vh;
+  text-align: center;
+  align-items: center;
+}
+
+.date {
+  font-size: 14px;
+  font-weight: bolder;
+  display: inline-block;
+  margin: 0;
+}
+
+.arrow_back, .arrow_next {
+  position: relative;
+  display: inline-block;
+}
+
+.arrow_back::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border: 0px;
+  border-top: solid 2px #9abbd2;
+  border-left: solid 2px #9abbd2;
+  -ms-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -10px;
+  margin-left: -25px;
+}
+
+.arrow_next::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border: 0px;
+  border-top: solid 2px #9abbd2;
+  border-right: solid 2px #9abbd2;
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -10px;
+  margin-left: 15px;
+}
+
+/* MODAL */
+
+.modal_wrapper {
+  z-index: 1000;
+  position: absolute;
+  height: 69vh;
+  width: 60vw;
+  top: 15vh;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  background-color: red;
+  display: flex;
+  padding: 3% 4% 0 4%;
+  border-radius: 5%;
+  /* display: none; */
+}
+
+.modal_left {
+  width: 50%;
+
+}
+
+.modal_right {
+  width: 50%;
+  padding-left: 7%;
+}
+
+.modal_title {
+  font-size: 14px;
+}
+
+.textbox_small {
+  width: 95%;
+  height: 6vh;
+  border:#f5f4f8;
+  border-radius: 10px;
+  background-color: #f5f4f8;
+}
+
+.textbox_large {
+  width: 95%;
+  height: 30vh;
+  border:#f5f4f8;
+  border-radius: 10px;
+  background-color: #f5f4f8;
+}
+
+.modal_twitter {
+  margin-top: 7%;
+}
+
+.modal_wrapper ul {
+  display: flex;
+  flex-wrap: wrap;
+  padding-inline-start: 0;
+}
+
+.modal_wrapper li {
+  list-style: none;
+  background-color: #f5f4f8;
+  padding: 2%;
+  border-radius: 30px;
+  margin-bottom: 1vh;
+  margin-right: 0.2vw;
+  position: relative;
+}
+
+.dot {
+  height: 17px;
+  width: 17px;
+  background-color: #cccccc;
+  border-radius: 50%;
+  display: inline-block;
+  position: absolute;
+  top: 50%;
+  margin-top: -9.5px;
+  margin-right: 10px;
+  /* align-items: center; */
+}
