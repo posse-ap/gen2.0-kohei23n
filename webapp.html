@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <title>POSSE Web App</title>
   <link rel="stylesheet" href="webapp.css">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  
 </head>
 <body>
   <!-- HEADER -->
@@ -13,13 +17,13 @@
       <h1 class="top_text">4th Week</h1>
     </div>
     <div class="header_right">
-      <a href="">記録・投稿</a>
+      <a href="#modal" id="modalbtn">記録・投稿</a>
     </div>
   </header>
 
   <!-- MAIN -->
   <main class="main">
-    <div class="main_section">
+    <div class="main_section" id="main_section">
       <!-- LEFT -->
       <div class="left">
         <!-- TOP LEFT -->
@@ -67,77 +71,109 @@
       </div>
     </div>
     <!-- MODAL -->
-    <div class="modal_wrapper">
-      <div class="modal_left">
-        <div class="modal_day">
-          <h1 class="modal_title">学習日</h1>
-          <input type="text" class="textbox_small">
+    <div class="modal_bg">
+      <div class="modal_inner" id="modal">
+        <div class="modal_wrapper">
+          <div class="modal_left" id="modal_left">
+            <div class="modal_day">
+              <h1 class="modal_title">学習日</h1>
+              <input type="text" class="textbox_small" id="datepicker">
+            </div>
+            <div class="modal_content">
+              <h1 class="modal_title">学習コンテンツ（複数選択可）</h1>
+              <div class="option_cont">
+                <div class="option content_op">
+                  <div class="arrow_check"></div>
+                  <div class="circle_gray circle_content"></div>
+                  <p class="label">N予備校</p>
+                </div class="option">
+                <div class="option content_op" >
+                  <div class="arrow_check"></div>
+                  <div class="circle_gray circle_content"></div>
+                  <p class="label">ドットインストール</p>
+                </div class="option">
+                <div class="option content_op">
+                  <div class="arrow_check"></div>
+                  <div class="circle_gray circle_content"></div>
+                  <p class="label">POSSE課題</p>
+                </div class="option">
+              </div>
+            </div>
+            <div class="modal_lang">
+              <h1 class="modal_title">学習言語（複数選択可）</h1>
+              <div class="option_cont">
+                <div class="option_cont">
+                  <div class="option lang_op">
+                    <div class="arrow_check"></div>
+                    <div class="circle_gray circle_lang"></div>
+                    <p class="label">HTML</p>
+                  </div>
+                  <div class="option lang_op">
+                    <div class="arrow_check"></div>
+                    <div class="circle_gray circle_lang"></div>
+                    <p class="label">CSS</p>
+                  </div class="option">
+                  <div class="option lang_op">
+                    <div class="arrow_check"></div>
+                    <div class="circle_gray circle_lang"></div>
+                    <p class="label">Javascript</p>
+                  </div class="option">
+                  <div class="option lang_op">
+                    <div class="arrow_check"></div>
+                    <div class="circle_gray circle_lang"></div>
+                    <p class="label">PHP</p>
+                  </div class="option">
+                  <div class="option lang_op">
+                    <div class="arrow_check"></div>
+                    <div class="circle_gray circle_lang"></div>
+                    <p class="label">Laravel</p>
+                  </div class="option">
+                  <div class="option lang_op">
+                    <div class="arrow_check"></div>
+                    <div class="circle_gray circle_lang"></div>
+                    <p class="label">SQL</p>
+                  </div class="option">
+                  <div class="option lang_op">
+                    <div class="arrow_check"></div>
+                    <div class="circle_gray circle_lang"></div>
+                    <p class="label">SHELL</p>
+                  </div class="option">
+                  <div class="option lang_op">
+                    <div class="arrow_check"></div>
+                    <div class="circle_gray circle_lang"></div>
+                    <p class="label">情報システム基礎知識（その他）</p>
+                  </div class="option">
+                </div>
+              </div>
+            </div>
+          </div> 
+          <!-- MODAL RIGHT -->
+          <div class="modal_right" id="modal_right">
+            <div class="modal_time">
+              <h1 class="modal_title">学習時間</h1>
+              <input type="text" class="textbox_small">
+            </div>
+            <div class="modal_twitter">
+              <h1 class="modal_title">Twitter用コメント</h1>
+              <input type="text" class="textbox_large">
+            </div>
+            <div class="modal_twitter_share">
+              <div class="arrow_check_twitter"></div>
+              <div class="circle_blue"></div>
+              <p class="twitter_text">Twitterにシェアする</p>
+            </div>
+          </div> 
         </div>
-        <div class="modal_content">
-          <h1 class="modal_title">学習コンテンツ（複数選択可）</h1>
-          <ul>
-            <li>
-              <span class="dot"></span>
-              N予備校
-            </li>
-            <li>
-              <span class="dot"></span>
-              ドットインストール
-            </li>
-            <li>
-              <span class="dot"></span>
-              POSSE課題
-            </li>
-          </ul>
+        <!-- MODAL BOTTOM -->
+        <div class="modal_bottom" id="modal_bottom">
+          <a href="#modal" id="bottom_btn">記録・投稿</a>
         </div>
-        <div class="modal_lang">
-          <h1 class="modal_title">学習言語（複数選択可）</h1>
-          <ul>
-            <li>
-              <span class="dot"></span>
-              HTML
-            </li>
-            <li>
-              <span class="dot"></span>
-              CSS
-            </li>
-            <li>
-              <span class="dot"></span>
-              Javascript
-            </li>
-            <li>
-              <span class="dot"></span>
-              PHP
-            </li>
-            <li>
-              <span class="dot"></span>
-              Laravel
-            </li>
-            <li>
-              <span class="dot"></span>
-              SQL
-            </li>
-            <li>
-              <span class="dot"></span>
-              SHELL
-            </li>
-            <li>
-              <span class="dot"></span>
-              情報システム基礎知識（その他）
-            </li>
-          </ul>
-        </div>
-      </div> 
-      <div class="modal_right">
-        <div class="modal_time">
-          <h1 class="modal_title">学習時間</h1>
-          <input type="text" class="textbox_small">
-        </div>
-        <div class="modal_twitter">
-          <h1 class="modal_title">Twitter用コメント</h1>
-          <input type="text" class="textbox_large">
-        </div>
-      </div> 
+        <!-- X BUTTON -->
+        <div class="x" id="close"></div>
+        <!-- LOADER -->
+        <div class="loader" id="loader">loading</div>
+
+      </div>
     </div>
   </main>
   
