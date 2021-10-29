@@ -2,12 +2,13 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>POSSE Web App</title>
   <link rel="stylesheet" href="webapp.css">
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-  
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 </head>
 <body>
   <!-- HEADER -->
@@ -46,22 +47,71 @@
         </div>
         <!-- BOTTOM LEFT -->
         <div class="bottom_left">
-          <div>
+          <!-- <div>
             <img src="img/graph.png" alt="Graph1">
-          </div>
+          </div> -->
+          <div id="column" class="column"></div>
         </div>
       </div>
       <!-- RIGHT -->
       <div class="right">
-        <div class="pie">
+        <div class="donut">
           <h1 class="gakushu">学習言語</h1>
-          <div>
-            <img src="" alt="">
+          <div id="donut_lang"></div>
+          <div class="legend_cont_lang">
+            <div class="legend">
+              <div class="legend_circle html_circle"></div>
+              <p>HTML</p>
+            </div>
+            <div class="legend">
+              <div class="legend_circle css_circle"></div>
+              <p>CSS</p>
+            </div>
+            <div class="legend">
+              <div class="legend_circle sql_circle"></div>
+              <p>SQL</p>
+            </div>
+            <div class="legend">
+              <div class="legend_circle shell_circle"></div>
+              <p>Shell</p>
+            </div>
+            <div class="legend">
+              <div class="legend_circle js_circle"></div>
+              <p>Javascript</p>
+            </div>
+            <div class="legend">
+              <div class="legend_circle other_circle"></div>
+              <p>その他</p>
+            </div>
+            <div class="legend">
+              <div class="legend_circle php_circle"></div>
+              <p>PHP</p>
+            </div>
+            <div class="legend">
+                <div class="legend_circle laravel_circle"></div>
+                <p>Laravel</p>
+            </div>
           </div>
         </div>
-        <div class="pie">
-          <h1 class="gakushu">学習コンテンツ</h1>
+
+      <div class="donut">
+        <h1 class="gakushu">学習コンテンツ</h1>
+        <div id="donut_content"></div>
+        <div class="legend_cont_content">
+          <div class="legend">
+            <div class="legend_circle n_circle"></div>
+            <p>N予備校</p>
+          </div>
+          <div class="legend">
+            <div class="legend_circle kadai_circle"></div>
+            <p>課題</p>
+          </div>
+          <div class="legend">
+            <div class="legend_circle dot_circle"></div>
+            <p>ドットインストール</p>
+          </div>
         </div>
+      </div>
       </div>
       <!-- BOTTOM -->
       <div class="bottom">
@@ -159,7 +209,7 @@
             </div>
             <div class="modal_twitter_share">
               <div class="arrow_check_twitter"></div>
-              <div class="circle_blue"></div>
+              <div class="twitter_circle"></div>
               <p class="twitter_text">Twitterにシェアする</p>
             </div>
           </div> 
@@ -171,7 +221,7 @@
         <!-- X BUTTON -->
         <div class="x" id="close"></div>
         <!-- LOADER -->
-        <div class="loader" id="loader">loading</div>
+        <div class="loader" id="loader"></div>
 
       </div>
     </div>

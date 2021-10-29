@@ -31,7 +31,7 @@ body {
 
 .top_text {
   color: #c0d4e3;
-  font-size: 14px;
+  font-size: 1vw;
   margin: 0 0 0 10px;
   font-weight: lighter;
 }
@@ -81,15 +81,18 @@ body {
 .top_left {
   display: flex;
   width: 100%;
-  height: 20vh;
+  height: 9vw;
 }
 
 .hour {
   width: 32%;
+  height: 100%;
   margin-left: 1.3vw;
   background-color: #ffffff;
   text-align: center;
+  vertical-align: middle;
   border-radius: 10%;
+  box-shadow: 3px 3px 2px #eaeaed;
 }
 
 .hour:first-child {
@@ -98,17 +101,18 @@ body {
 
 .hour_title {
   color: #0f70bb;
-  font-size: 15px;
+  font-size: 1.1vw;
   margin-bottom: 0;
 }
 
 .hour_number {
   margin: 0;
+  font-size: 2.2vw;
 }
 
 .hour_hour {
   color: #9bbcd3;
-  font-size: 15px;
+  font-size: 1.1vw;
   margin-top: 0;
   font-weight: lighter;
 }
@@ -120,35 +124,99 @@ body {
   margin-top: 3vh;
   overflow: hidden;
   border-radius: 3%;
-  height: 50vh;
+  height: 23.1vw;
+  background-color: gray;
+  box-shadow: 3px 3px 2px #eaeaed;
 }
 
-.bottom_left img {
-  width: 100%;
-  height: 50vh;
-  background-size: contain;
+.column {
+  height: 100%;
 }
 
-/* BOTTOM LEFT */
-
+/* RIGHT */
 .right {
   width: 50%;
+  height: 33.5vw;
   float: right;
   display: flex;
 }
 
-.pie {
+.donut {
   background-color: #ffffff;
+  background-size: contain;
   border-radius: 5%;
   margin-left: 1.3vw;
   width: 50%;
-  height: 73vh;
+  box-shadow: 3px 3px 2px #eaeaed;
 }
 
 .gakushu {
-  font-size: 20px;
-  margin: 4vh 0 0 1.3vw;
+  font-size: 1.4vw;
+  margin: 4vh 0 1.5vw 1.3vw;
 }
+
+.legend_cont_lang, .legend_cont_content {
+  max-width: 100%;
+  margin: 2.5vw 0 0 0;
+  padding: 3%;
+}
+
+.legend_cont_lang {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.legend {
+  display: flex;
+  margin: 0 0 1.2vw 0.3vw;
+}
+
+.legend p {
+  line-height: 15px;
+  margin: 0 0 0 0.3vw;
+  color: #9f9f9f;
+  font-size: 1vw;
+}
+
+.legend_circle {
+  height: 0.9vw;
+  width: 0.9vw;
+  border-radius: 50%;
+  margin-left: 0.5vw;
+}
+
+.html_circle, .n_circle {
+  background-color: #0445ec;
+}
+
+.css_circle, .kadai_circle {
+  background-color: #0f70bd;
+}
+
+.sql_circle, .dot_circle {
+  background-color: #20bdde;
+}
+
+.shell_circle {
+  background-color: #3ccefe;
+}
+
+.js_circle {
+  background-color: #b29ef3;
+}
+
+.other_circle {
+  background-color: #6c46eb;
+}
+
+.php_circle {
+  background-color: #4a17ef;
+}
+
+.laravel_circle {
+  background-color: #3005c0;
+}
+
 
 /* BOTTOM */
 
@@ -162,7 +230,7 @@ body {
 }
 
 .date {
-  font-size: 14px;
+  font-size: 1vw;
   font-weight: bolder;
   display: inline-block;
   margin: 0;
@@ -238,7 +306,7 @@ body {
 }
 
 .modal_title {
-  font-size: 14px;
+  font-size: 1vw;
   margin: 0 0 1vh 0;
 }
 
@@ -353,10 +421,10 @@ body {
   line-height: 6vh;
 }
 
-.circle_blue {
+.twitter_circle {
   height: 40px;
   width: 40px;
-  background-color: #0f70bc;
+  background-color: #cccccc;
   border-radius: 50%;
   display: inline-block;
 }
@@ -448,15 +516,13 @@ body {
 
 /* LOAD */
 
-.loader,
+/* .loader,
 .loader:before,
 .loader:after {
   border-radius: 50%;
 }
 .loader {
   color: #2198d7;
-  font-size: 11px;
-  text-indent: -99999em;
   margin: 55px auto;
   position: absolute;
   top: 25%;
@@ -494,8 +560,67 @@ body {
   left: 4.9em;
   transform-origin: 0.1em 5.1em;
   animation: load2 2s infinite ease;
+} */
+
+
+
+.loader:before,
+.loader:after {
+  position: absolute;
+  content: '';
 }
-@-webkit-keyframes load2 {
+.loader,
+.loader:before,
+.loader:after {
+  border-radius: 50%;
+}
+
+.loader {
+  margin: 50px auto;
+  text-indent: -9999em;
+  width: 8vw;
+  height: 8vw;
+  border-radius: 50%;
+  top: 17%;
+  background: #167ec4;
+  /* background: -moz-linear-gradient(left, #2f23d7 10%, rgba(47,35,215, 0) 42%);
+  background: -webkit-linear-gradient(left, #2f23d7 10%, rgba(47,35,215, 0) 42%);
+  background: -o-linear-gradient(left, #2f23d7 10%, rgba(47,35,215, 0) 42%);
+  background: -ms-linear-gradient(left, #2f23d7 10%, rgba(47,35,215, 0) 42%); */
+  background: linear-gradient(to right, #167ec4 10%, rgba(48,189,238,0) 50%);
+  position: relative;
+  /* -webkit-animation: load3 1.4s infinite linear; */
+  animation: load3 1.4s infinite linear;
+  /* -webkit-transform: translateZ(0); */
+  /* -ms-transform: translateZ(0); */
+  transform: translateZ(0);
+  display: none;
+}
+
+.loader:before {
+  width: 50%;
+  height: 50%;
+  background: #167ec4;
+  border-radius: 100% 0 0 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '';
+}
+.loader:after {
+  background: #fff;
+  width: 75%;
+  height: 75%;
+  border-radius: 50%;
+  content: '';
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+@-webkit-keyframes load3 {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
@@ -505,7 +630,7 @@ body {
     transform: rotate(360deg);
   }
 }
-@keyframes load2 {
+@keyframes load3 {
   0% {
     -webkit-transform: rotate(0deg);
     transform: rotate(0deg);
@@ -516,7 +641,98 @@ body {
   }
 }
 
-/* #datepicker {
-  width: 100%;
-  height: 100%;
-} */
+/* iPhone X Size */
+@media screen and (max-width: 375px) {
+  
+  /* HEADER */
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 15vw;
+    margin: 0 3%;
+  }
+
+  .header_left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 15vw;
+  }
+
+  .img_cont {
+    background: url(img/logo.png) no-repeat;
+    background-size: contain;
+    text-align: center;
+    max-width: 100%;
+    height: 10vw;
+    width: 12vw;
+    overflow: auto;
+  }
+
+  .img_cont img {
+    vertical-align: middle;
+    height: 100%;
+    align-items: center;
+  }
+
+  .top_text {
+    color: #c0d4e3;
+    font-size: 0.8vw;
+    margin: 0 0 0 10px;
+    font-weight: lighter;
+  }
+
+  .header_right {
+    background: linear-gradient(90deg, #0162c8, #55e7fc);
+    border-radius: 30px;
+    padding: 1vw 2vw;
+    box-shadow: 0 2px 2px #00bfff;
+  }
+
+  .header_right a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 1vw;
+    vertical-align: middle;
+  }
+
+  /* LAYOUT */
+
+  .left {
+    float: none;
+    width: 100%;
+    display: block;
+    min-height: 50vw;
+  }
+
+  .top_left {
+    display: flex;
+    width: 100%;
+    height: 25vw;
+  }
+
+  .bottom_left {
+    width: 100%;
+    margin-top: 1vh;
+    overflow: hidden;
+    border-radius: 3%;
+    height: 40vw;
+    background-color: gray;
+    box-shadow: 3px 3px 2px #eaeaed;
+  }
+
+  .right {
+    width: 100%;
+    height: 33.5vw;
+    float: none;
+    display: flex;
+  }
+  
+  .column {
+    height: 100%;
+  }
+}
+
+
