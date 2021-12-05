@@ -464,7 +464,7 @@ const mySecondDonutChart = new Chart(donut2, {
     data: {
         labels: ['N予備校', '課題', 'ドットインストール'],
         datasets: [{
-            data: [40, 20, 20],
+            data: [40, 40, 20],
             backgroundColor: [
               '#0445ec',
               '#0f70bd',

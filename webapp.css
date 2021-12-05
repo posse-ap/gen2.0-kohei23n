@@ -462,7 +462,7 @@ body {
 .modal_twitter_share a {
   text-decoration: none;
   color: #000;
-  line-height: 6vh;
+  line-height: 4vh;
   margin: 0 0.5vw;
 }
 
@@ -1192,4 +1192,3 @@ body {
   }
 }
 
-w
