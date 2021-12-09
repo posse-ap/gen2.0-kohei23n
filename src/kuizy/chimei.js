@@ -100,5 +100,4 @@ let clickfunction = function (questionnumber, chosennumber) {
     for (let i = 0; i < 3; i++) {
         document.getElementById(`c${questionnumber}.${i}`).classList.add('oneclick')
     };
-               
-    }
+}
