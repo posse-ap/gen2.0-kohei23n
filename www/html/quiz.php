@@ -1,36 +1,20 @@
-<html lang="ja">
-<head>
-  <title>PHP Test</title>
-</head>
-<body>
-  <?php
+<?php
 
-$dsn = 'mysql:host=localhost;dbname=kuizy;charset=utf8';
-
-// データベースのユーザー名
+$dsn = 'mysql:host=db;dbname=kuizy;charset=utf8;';
 $user = 'root';
-
-// データベースのパスワード
 $password = 'secret';
 
-// tryにPDOの処理を記述
 try {
 
-// PDOインスタンスを生成
-$dbh = new PDO($dsn, $user, $password);
-
-// // エラー（例外）が発生した時の処理を記述
+  $db = new PDO($dsn, $user, $password);
+  $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  echo '成功'
+;
 } catch (PDOException $e) {
 
-// //   // エラーメッセージを表示させる
-  echo 'データベースにアクセスできません！' . $e->getMessage();
-
-// //   // 強制終了
+  echo '接続失敗' . $e->getMessage();
   exit();
 
 }
 
 
-  ?>
-</body>
-</html>
