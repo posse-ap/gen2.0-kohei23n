@@ -24,6 +24,7 @@ services:
     volumes:
       - ./mysql/data:/var/lib/mysql
       - ./mysql/sql:/docker-entrypoint-initdb.d
+      - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
     environment:
       MYSQL_DATABASE: kuizy
       MYSQL_PASSWORD: secret

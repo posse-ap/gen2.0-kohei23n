@@ -17,11 +17,22 @@ $big_questions = $stmt->fetchAll();
 </head>
 
 <body>
-  <?php foreach ($big_questions as $big_question) : ?>
+  <?php
+  $url = $_SERVER['REQUEST_URI'];
+  if(strstr($url, '1')) : ?>
     <p>
-      <a href="/quiz?question_id=<?php echo $big_question['id']; ?>"><?php echo $big_question['id'] . '：' . $big_question['name']; ?></a>
+      <a href="/quiz?question_id=1; ?>">1 : 東京の難読地名クイズ</a>
     </p>
-  <?php endforeach; ?>
+  <?php elseif (strstr($url, '2')): ?>
+    <p>
+      <a href="/quiz?question_id=2; ?>">2 : 広島県の難読地名クイズ'; ?></a>
+    </p>
+  <?php endif; ?>
+
+  
+
+
+
 </body>
 
 </html>
