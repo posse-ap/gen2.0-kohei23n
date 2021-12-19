@@ -1,8 +1,12 @@
 <?php
 require('quiz.php');
 
-$stmt = $db->query('SELECT * FROM big_questions');
-$big_questions = $stmt->fetchAll();
+$sql1 = "SELECT * FROM big_questions WHERE id = 1";
+$sql2 = "SELECT * FROM big_questions WHERE id = 2";
+
+$stmt1 = $db->query($sql1);
+$stmt2 = $db->query($sql2);
+
 
 ?>
 
@@ -20,15 +24,31 @@ $big_questions = $stmt->fetchAll();
   <?php
   $url = $_SERVER['REQUEST_URI'];
   if(strstr($url, '1')) : ?>
+    <?php foreach ($stmt1 as $row1) : ?>
     <p>
-      <a href="/quiz?question_id=1; ?>">1 : 東京の難読地名クイズ</a>
+      <a href="/quiz?question_id=<?php echo $row1['id']; ?>"><?php echo $row1['id'] . '：' . $row1['name']; ?></a>
     </p>
+    <?php endforeach; ?>
   <?php elseif (strstr($url, '2')): ?>
+    <?php foreach ($stmt2 as $row2) : ?>
     <p>
-      <a href="/quiz?question_id=2; ?>">2 : 広島県の難読地名クイズ'; ?></a>
+      <a href="/quiz?question_id=<?php echo $row2['id']; ?>"><?php echo $row2['id'] . '：' . $row2['name']; ?></a>
     </p>
+    <?php endforeach; ?>
   <?php endif; ?>
 
+
+
+
+
+
+  
+
+
+  
+
+
+  
   
 
 
