@@ -1,9 +1,13 @@
 <?php
 require('quiz.php');
 
+
+// big_questions テーブルから '東京の難読地名クイズ'、'広島県の難読地名クイズ'をそれぞれ取得
+// WHERE で一つだけ取得すると、foreach() で書いても大丈夫
 $sql1 = "SELECT * FROM big_questions WHERE id = 1";
 $sql2 = "SELECT * FROM big_questions WHERE id = 2";
 
+// 上で定義した変数に対し処理
 $stmt1 = $db->query($sql1);
 $stmt2 = $db->query($sql2);
 
