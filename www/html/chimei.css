@@ -5,8 +5,11 @@
 }
 
 .qDiv {
-    margin: 30px 15px;
-    width: auto;
+    max-width: 650px;
+    width: 100%;
+    margin: 0 auto;
+    /* margin: 30px 15px;
+    width: auto; */
 }
 
 .nameunderline {
