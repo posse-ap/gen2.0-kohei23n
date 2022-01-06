@@ -1,5 +1,5 @@
 <?php
-require('quiz.php');
+require('dbconnect.php');
 
 
 
@@ -17,11 +17,6 @@ $big_questions_results = $big_questions_stmt->fetch();
 $questions_stmt = $db->prepare("SELECT * FROM questions WHERE big_question_id = ?");
 $questions_stmt->execute(array($id));
 $questions_results = $questions_stmt->fetchAll();
-
-// 選択肢表示用
-$choices_stmt = $db->prepare("SELECT * FROM choices WHERE question_id = ?");
-$choices_stmt->execute(array($id));
-$choices_results = $choices_stmt->fetchAll();
 
 
 ?>
@@ -43,6 +38,20 @@ $choices_results = $choices_stmt->fetchAll();
 
     <h1 class="nameunderline"><?= $question_result['id'] ?>.この地名はなんて読む？</h1>
     <img src="img/<?= $question_result['image'] ?>" alt="">
+
+    <ul>
+      <?php  
+      // 選択肢表示用
+      $choices_stmt = $db->prepare("SELECT * FROM choices WHERE question_id = ?");
+      // 
+      $choices_stmt->execute(array($question_result['id']));
+      $choices_results = $choices_stmt->fetchAll();
+      foreach ($choices_results as $choices_result) :
+      ?>
+
+      <li class="q"><?= $choices_result['name'] ?></li>
+      <?php endforeach; ?>
+    </ul>
 
 
 
@@ -71,5 +80,3 @@ $choices_results = $choices_stmt->fetchAll();
 </body>
 
 </html>
-
-

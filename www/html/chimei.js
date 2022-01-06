@@ -1,39 +1,4 @@
-let choices = [
-    ['たかなわ', 'たかわ', 'こうわ'],
-    ['かめいど', 'かめど', 'かめと'],
-    ['こうじまち', 'おかとまち', 'かゆまち'],
-    ['おなりもん', 'おかどもん', 'ごせいもん'],
-    ['とどろき', 'たたら', 'たたりき'],
-    ['しゃくじい', 'いじい', 'せきこうい'],
-    ['ぞうしき', 'ざっしき', 'ざっしょく'],
-    ['おかちまち', 'みとちょう', 'ごしろちょう'],
-    ['ししぼね', 'しこね', 'ろっこつ'],
-    ['こぐれ', 'こばく', 'こしゃく'],
-];
-
-let choiceLength = 3;
-
-let answers = ['たかなわ', 'かめいど', 'こうじまち', 'おなりもん', 'とどろき', 'しゃくじい', 'ぞうしき', 'おかちまち', 'ししぼね', 'こぐれ', ]
-
 for (let i = 0; i < 10; i++) {
-
-    //問題ごとにdivを作成
-    let qDiv = document.createElement('div');
-    qDiv.classList.add('qDiv');
-        //全体のdivに入れる
-    let container = document.getElementById('quizContainer');
-    container.appendChild(qDiv);
-            
-    //問題文
-    let title = document.createElement('h1');
-    title.innerText = `${i + 1}.この地名はなんて読む？`;
-    title.classList.add('nameunderline');
-    qDiv.appendChild(title);
-
-    //画像
-    let img = document.createElement('img');
-    img.src = `./img/img${i + 1}.png`
-    qDiv.appendChild(img);
 
     //ボタンシャッフル機能
     function shuffle(arr) {
