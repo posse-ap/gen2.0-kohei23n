@@ -51,11 +51,15 @@ p {
 }
 
 .ansarea {
-    display: block; 
+    display: none; 
     background: #f5f5f5; 
     width: 586px;
     padding: 17px; 
     border-radius: 3px;
+}
+
+.correct_ansarea, .wrong_ansarea {
+    display: block; 
 }
 
 .c_ansmsg {

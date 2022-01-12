@@ -2,9 +2,9 @@
 
 require('dbconnect.php');
 
-
 // URLからIDを取得
 $id = $_GET['id'];
+
 
 // title表示用
 $title_stmt = $db->prepare("SELECT * FROM big_questions WHERE id = ?");
@@ -38,7 +38,7 @@ $questions_results = $questions_stmt->fetchAll();
     <h1 class="nameunderline"><?= $question_result['id'] ?>.この地名はなんて読む？</h1>
     <img src="img/<?= $question_result['image'] ?>" alt="">
 
-    <ul class="ul">
+    <ul class="ul" id="question<?= $question_result['id']; ?>_choices">
       <?php  
       // 選択肢表示用
       $choices_stmt = $db->prepare("SELECT * FROM choices WHERE question_id = ?");
@@ -48,31 +48,32 @@ $questions_results = $questions_stmt->fetchAll();
       $answer_stmt = $db->prepare("SELECT * FROM choices WHERE question_id = ? AND valid = 1");
       $answer_stmt->execute(array($question_result['id']));
       $answer = $answer_stmt->fetch();
-      // 変数名前をわかりやすく
-      $question_number = $question_result['id'];
       ?>
 
       <?php 
       // foreach に埋め込む前に配列をシャッフル
+      // 正誤判定 trial & error について
+        // $choice['id'] を使うと配列の要素ごと順番がシャッフルされてしまい、上から 1, 2, 3 にはならない。でもそれでもいけるかも？
       shuffle($choices); 
       foreach ($choices as $choice) :
       ?>
+
       <li class="q" 
-          id="choice<?= $option_number; ?>_<?= $question_result['id']; ?>" 
-          onclick="clickfunction(<?= $question_result['id']; ?>, <?= $question_result['id']; ?>)">
+        id="question<?= $question_result['id']; ?>_choice<?= $choice['id']; ?>" 
+        onclick="clickfunction(<?= $question_result['id']; ?>, <?= $choice['id']; ?>, <?= $answer['id']; ?>)"
+      >
         <?= $choice['name'] ?>
       </li>
 
-      <!-- id="c${i}.0" onclick="clickfunction(${i},0)" -->
       <?php endforeach; ?>
     </ul>
 
-    <div class="ansarea">
+    <div class="ansarea" id="correct_box<?= $question_result['id']; ?>">
       <p class="c_ansmsg">正解！</p>
       <p class="ansexp">正解は「<?= $answer['name'] ?>」です！</p>
     </div>
 
-    <div class="ansarea">
+    <div class="ansarea" id="wrong_box<?= $question_result['id']; ?>">
       <p class="w_ansmsg">不正解！</p>
       <p class="ansexp">正解は「<?= $answer['name'] ?>」です！</p>
     </div>
@@ -81,3 +82,6 @@ $questions_results = $questions_stmt->fetchAll();
 
 
   <?php endforeach; ?>
+
+  <script src="chimei.js"></script>
+</body>
