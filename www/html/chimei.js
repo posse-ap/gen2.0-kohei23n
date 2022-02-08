@@ -1,12 +1,3 @@
-
-    // //ボタンの作成
-    // ul.innerHTML = `<li class="q" id="c${i}.0" onclick="clickfunction(${i},0)">${choices[i][0]}</li>`
-    //                + `<li class="q" id="c${i}.1" onclick="clickfunction(${i},1)">${choices[i][1]}</li>`
-    //                + `<li class="q" id="c${i}.2" onclick="clickfunction(${i},2)">${choices[i][2]}</li>`;
-    
-
-
-
 //ボタンをクリックした時の処理
 let clickfunction = function (questionnumber, chosennumber, answernumber) {
     let answer = document.getElementById(`question${questionnumber}_choice${answernumber}`);
