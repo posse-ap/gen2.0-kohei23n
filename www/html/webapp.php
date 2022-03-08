@@ -2,6 +2,10 @@
 
 require('dbconnect.php');
 
+// 今日の学習時間
+$today_stmt = $db->prepare("SELECT SUM(time) FROM records WHERE date = CURDATE()");
+$today = $today_stmt->fetch();
+
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +44,7 @@ require('dbconnect.php');
         <div class="top_left">
           <div class="hour">
             <h2 class="hour_title">Today</h2>
-            <h1 class="hour_number">3</h1>
+            <h1 class="hour_number"><?= $today['time'] ?></h1>
             <h2 class="hour_hour">hours</h2>
           </div>
           <div class="hour">
