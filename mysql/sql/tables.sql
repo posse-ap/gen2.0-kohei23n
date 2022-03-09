@@ -7,22 +7,34 @@ USE webapp;
 DROP TABLE IF EXISTS records;
 CREATE TABLE records (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  date DATETIME NOT NULL,
-  time INT NOT NULL,
-  language_id INT NOT NULL,
-  content_id INT NOT NULL
+  `study_date` DATETIME NOT NULL,
+  `study_time` INT NOT NULL,
+  `language_id` INT NOT NULL,
+  `content_id` INT NOT NULL
 );
 
-INSERT INTO records(date, time, language_id, content_id)
+INSERT INTO records(study_date, study_time, language_id, content_id)
 VALUES
-  ('2022-3-1', 2, 1, 1),
-  ('2022-3-2', 3, 2, 1),
-  ('2022-3-3', 4, 3, 1),
-  ('2022-3-4', 2, 4, 1),
-  ('2022-3-5', 3, 1, 2),
-  ('2022-3-6', 4, 2, 2),
-  ('2022-3-7', 2, 3, 2),
-  ('2022-3-8', 3, 4, 2);
+  ('2022-3-5', 2, 1, 1),
+  ('2022-3-6', 3, 2, 1),
+  ('2022-3-7', 4, 3, 1),
+  ('2022-3-8', 2, 4, 1),
+  ('2022-3-9', 0, 1, 2),
+  ('2022-3-10', 4, 2, 2),
+  ('2022-3-11', 2, 3, 2),
+  ('2022-3-12', 3, 4, 2),
+  ('2022-3-13', 3, 1, 3),
+  ('2022-3-14', 3, 2, 3),
+  ('2022-3-15', 2, 3, 3),
+  ('2022-3-16', 3, 4, 3),
+  ('2022-4-17', 4, 1, 1),
+  ('2022-4-17', 3, 2, 1),
+  ('2022-4-17', 2, 3, 2),
+  ('2022-4-17', 3, 4, 2),
+  ('2022-5-17', 4, 1, 3),
+  ('2022-5-17', 3, 2, 3),
+  ('2022-5-17', 2, 3, 3);
+
 
 
 -- 学習言語のテーブル

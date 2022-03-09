@@ -3,8 +3,25 @@
 require('dbconnect.php');
 
 // 今日の学習時間
-$today_stmt = $db->prepare("SELECT SUM(time) FROM records WHERE date = CURDATE()");
-$today = $today_stmt->fetch();
+$today_stmt = $db->query("SELECT study_time FROM records WHERE study_date = CURDATE()");
+$today = $today_stmt->fetch() ?: 0;
+
+//今月の学習時間
+$month_stmt = $db->query("SELECT SUM(study_time) FROM records WHERE DATE_FORMAT(study_date, '%M/%Y') = DATE_FORMAT(now(), '%M/%Y')");
+$month = $month_stmt->fetch() ?: 0;
+
+//合計学習時間
+$total_stmt = $db->query("SELECT SUM(study_time) FROM records");
+$total = $total_stmt->fetch() ?: 0;
+
+// ?: = ternary operator, same as < condition ? value1 : value2; >
+// https://www.phptutorial.net/php-tutorial/php-ternary-operator/ 
+
+//棒グラフデータ
+$bar_stmt = $db->query("SELECT SUM(study_time) FROM records GROUP BY study_date HAVING DATE_FORMAT(study_date, '%M/%Y') = DATE_FORMAT(now(), '%M/%Y')");
+$bars = $bar_stmt->fetchAll() ?: 0;
+
+
 
 ?>
 
@@ -44,17 +61,17 @@ $today = $today_stmt->fetch();
         <div class="top_left">
           <div class="hour">
             <h2 class="hour_title">Today</h2>
-            <h1 class="hour_number"><?= $today['time'] ?></h1>
+            <h1 class="hour_number"><?= $today['study_time'] ?></h1>
             <h2 class="hour_hour">hours</h2>
           </div>
           <div class="hour">
             <h2 class="hour_title">Month</h2>
-            <h1 class="hour_number">120</h1>
+            <h1 class="hour_number"><?= $month['SUM(study_time)'] ?></h1>
             <h2 class="hour_hour">hours</h2>
           </div>
           <div class="hour">
             <h2 class="hour_title">Total</h2>
-            <h1 class="hour_number">1348</h1>
+            <h1 class="hour_number"><?= $total['SUM(study_time)'] ?></h1>
             <h2 class="hour_hour">hours</h2>
           </div>
         </div>
@@ -129,7 +146,7 @@ $today = $today_stmt->fetch();
       <!-- BOTTOM -->
       <div class="bottom">
         <div class="arrow_back"></div>
-        <p class="date">2020年10月</p>
+        <p class="date">2022年3月</p>
         <div class="arrow_next"></div>
         <div class="mobile_modal">
           <a href="#" id="mobile_modalbtn">記録・投稿</a>
@@ -355,5 +372,93 @@ $today = $today_stmt->fetch();
   </main>
   
   <script src="webapp.js"></script>
+  <script>
+  
+  const column = document.getElementById('column').getContext('2d');
+
+  var gradient = column.createLinearGradient(0, 0, 0, 300);
+  gradient.addColorStop(0, 'rgba(54, 206, 254, 1)');
+  gradient.addColorStop(1, 'rgba(17,115,189, 1)');
+
+  <?php 
+  // 学習時間棒グラフ
+  $graph_stmt = $db->query("SELECT * FROM records");
+  $graphs = $graph_stmt->fetchAll() ?: 0;
+  ?>
+  
+  const myColumnChart = new Chart(column, {
+      // label: 'none',
+      
+      type: 'bar',
+      data: {
+          labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+          datasets: [{
+              // data: [4, 4, 5, 3, 0, 0, 4, 2, 2, 8, 8, 2, 2, 1, 7, 4, 4, 3, 3, 3, 2, 2, 6, 2, 2, 1, 1, 1, 7, 8],
+              data: [
+                <?php 
+                foreach ($bars as $bar) {
+                  echo $bar['SUM(study_time)'] . ",";
+                }
+                ?>
+              ],
+              backgroundColor: gradient,
+              borderRadius: 50,
+              borderSkipped: false,
+          }],
+          // barPercentage: 0.3
+      },
+      options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            x: {
+              grid: {
+                display: false,
+                drawBorder: false,
+              },
+              ticks: {
+                // min: 2,
+                // maxTicksLimit: 15,
+                color: '#bdd1e1',
+                autoSkip: false,
+                min: 1,
+                max: 30,
+                padding: 0,
+                // stepSize: 2,
+                callback: function(val, index) {
+                  // Hide the label of every 2nd dataset
+                  return index % 2 === 1 ? this.getLabelForValue(val) : '';
+                },
+                maxRotation: 0,
+                minRotation: 0
+              },
+              // barPercentage: 0.3
+            },
+            y: {
+              grid: {
+                display: false,
+                drawBorder: false
+              },
+              max: 8,
+              min: 0,
+              ticks: {
+                stepSize: 2, 
+                callback: function(value) {
+                  return value + 'h';
+                },
+                color: '#bdd1e1',
+              },
+            },
+          },
+          plugins: {
+            legend: {
+              display: false
+            }
+          }
+      },
+      
+  });
+
+  </script>
 </body>
 </html>

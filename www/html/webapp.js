@@ -182,164 +182,88 @@ twittercircle.addEventListener('click', function() {
 
 // COLUMN CHART
 
-// google.charts.load("current", {packages:["corechart"]});
-//       google.charts.setOnLoadCallback(drawColumnChart);
-//       function drawColumnChart() {
+  // google.charts.load("current", {packages:["corechart"]});
+  //       google.charts.setOnLoadCallback(drawColumnChart);
+  //       function drawColumnChart() {
 
-//         var data = new google.visualization.DataTable();
-//         data.addColumn('number', 'Day of Month');
-//         data.addColumn('number', 'Hours Studied');
+  //         var data = new google.visualization.DataTable();
+  //         data.addColumn('number', 'Day of Month');
+  //         data.addColumn('number', 'Hours Studied');
 
-//         data.addRows([
-//           [1, 3], 
-//           [2, 4],
-//           [3, 5],
-//           [4, 3],
-//           [5, 0],
-//           [6, 0],
-//           [7, 4],
-//           [8, 2],
-//           [9, 2],
-//           [10, 8],
-//           [11, 8],
-//           [12, 2],
-//           [13, 2],
-//           [14, 1],
-//           [15, 7],
-//           [16, 4],
-//           [17, 4],
-//           [18, 3],
-//           [19, 3],
-//           [20, 3],
-//           [21, 2],
-//           [22, 2],
-//           [23, 6],
-//           [24, 2],
-//           [25, 2],
-//           [26, 1],
-//           [27, 1],
-//           [28, 1],
-//           [29, 7],
-//           [30, 8]
-//         ]);
-
-
-//       var options = {
-//         // width: '85%',
-//         // height: '90%',
-//         chartArea: { width: '85%', height: '85%'},
-//         legend: { position: 'none' },
-//         hAxis: { 
-//           ticks: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30],
-//           // ticks: {
-//           //   min: 1,
-//           //   max: 30,
-//           //   stepSize: 2,
-//           //   // maxTicksLimit: 16,
-//           // },
-//           gridlines: {color: 'transparent'},
-//           textStyle: {
-//             color: '#b8cddf'
-//           }
-//         },
-//         vAxis: {
-//           gridlines: {color: 'transparent'},
-//           baselineColor: 'transparent',
-//           format: '#h',
-//           textStyle: {
-//             color: '#b8cddf'
-//           }
-//         },
-//         colors:['#36c0f5'],
-//         maintainAspectRatio: false
-
-//       };
-
-//       var chart = new google.visualization.ColumnChart(
-//         document.getElementById('column'));
-
-//       drawChart();
-//       window.addEventListener('resize', drawChart, false);
-//       function drawChart() {
-//         chart.draw(data, options);
-//       }
-//       }
+  //         data.addRows([
+  //           [1, 3], 
+  //           [2, 4],
+  //           [3, 5],
+  //           [4, 3],
+  //           [5, 0],
+  //           [6, 0],
+  //           [7, 4],
+  //           [8, 2],
+  //           [9, 2],
+  //           [10, 8],
+  //           [11, 8],
+  //           [12, 2],
+  //           [13, 2],
+  //           [14, 1],
+  //           [15, 7],
+  //           [16, 4],
+  //           [17, 4],
+  //           [18, 3],
+  //           [19, 3],
+  //           [20, 3],
+  //           [21, 2],
+  //           [22, 2],
+  //           [23, 6],
+  //           [24, 2],
+  //           [25, 2],
+  //           [26, 1],
+  //           [27, 1],
+  //           [28, 1],
+  //           [29, 7],
+  //           [30, 8]
+  //         ]);
 
 
+  //       var options = {
+  //         // width: '85%',
+  //         // height: '90%',
+  //         chartArea: { width: '85%', height: '85%'},
+  //         legend: { position: 'none' },
+  //         hAxis: { 
+  //           ticks: [2, 4, 6, 8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30],
+  //           // ticks: {
+  //           //   min: 1,
+  //           //   max: 30,
+  //           //   stepSize: 2,
+  //           //   // maxTicksLimit: 16,
+  //           // },
+  //           gridlines: {color: 'transparent'},
+  //           textStyle: {
+  //             color: '#b8cddf'
+  //           }
+  //         },
+  //         vAxis: {
+  //           gridlines: {color: 'transparent'},
+  //           baselineColor: 'transparent',
+  //           format: '#h',
+  //           textStyle: {
+  //             color: '#b8cddf'
+  //           }
+  //         },
+  //         colors:['#36c0f5'],
+  //         maintainAspectRatio: false
 
-const column = document.getElementById('column').getContext('2d');
+  //       };
 
-var gradient = column.createLinearGradient(0, 0, 0, 300);
-gradient.addColorStop(0, 'rgba(54, 206, 254, 1)');
-gradient.addColorStop(1, 'rgba(17,115,189, 1)');
+  //       var chart = new google.visualization.ColumnChart(
+  //         document.getElementById('column'));
 
-
-
-const myColumnChart = new Chart(column, {
-    // label: 'none',
-    
-    type: 'bar',
-    data: {
-        labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
-        datasets: [{
-            data: [3, 4, 5, 3, 0, 0, 4, 2, 2, 8, 8, 2, 2, 1, 7, 4, 4, 3, 3, 3, 2, 2, 6, 2, 2, 1, 1, 1, 7, 8],
-            backgroundColor: gradient,
-            borderRadius: 50,
-            borderSkipped: false,
-        }],
-        // barPercentage: 0.3
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          x: {
-            grid: {
-              display: false,
-              drawBorder: false,
-            },
-            ticks: {
-              // min: 2,
-              // maxTicksLimit: 15,
-              color: '#bdd1e1',
-              autoSkip: false,
-              min: 1,
-              max: 30,
-              padding: 0,
-              // stepSize: 2,
-              callback: function(val, index) {
-                // Hide the label of every 2nd dataset
-                return index % 2 === 1 ? this.getLabelForValue(val) : '';
-              },
-              maxRotation: 0,
-              minRotation: 0
-            },
-            // barPercentage: 0.3
-          },
-          y: {
-            grid: {
-              display: false,
-              drawBorder: false
-            },
-            max: 8,
-            min: 0,
-            ticks: {
-              stepSize: 2, 
-              callback: function(value) {
-                return value + 'h';
-              },
-              color: '#bdd1e1',
-            },
-          },
-        },
-        plugins: {
-          legend: {
-            display: false
-          }
-        }
-    },
-    
-});
+  //       drawChart();
+  //       window.addEventListener('resize', drawChart, false);
+  //       function drawChart() {
+  //         chart.draw(data, options);
+  //       }
+  //       }
 
 
 
