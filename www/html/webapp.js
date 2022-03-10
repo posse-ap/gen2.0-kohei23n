@@ -312,44 +312,7 @@ twittercircle.addEventListener('click', function() {
 //         chart.draw(data, options);
 //       }
 
-const donut1 = document.getElementById('donut_lang').getContext('2d');
 
-const myFirstDonutChart = new Chart(donut1, {
-    type: 'doughnut',
-    data: {
-        labels: ['HTML', 'CSS', 'SQL', 'SHELL', 'Javascript', 'その他', 'PHP', 'Laravel'],
-        datasets: [{
-            data: [30, 20, 20, 20, 10, 10, 5, 5],
-            backgroundColor: [
-              '#0445ec',
-              '#0f70bd',
-              '#20bdde',
-              '#3ccefe',
-              '#b29ef3',
-              '#6c46eb',
-              '#4a17ef',
-              '#3005c0',
-            ],
-            borderColor: 'transparent'
-        }],
-    },
-    plugins: [ChartDataLabels],
-    options: {
-        responsive: true,
-        plugins: {
-          legend: {
-            display: false
-          },
-          datalabels: {
-            color: '#fff',
-            formatter: function(value) {
-              return value + '%';
-            }
-          }
-        },
-    },
-    
-});
 
 // STUDY CONTENT
 // google.charts.load("current", {packages:["corechart"]});
@@ -381,39 +344,7 @@ const myFirstDonutChart = new Chart(donut1, {
 //         chart.draw(data, options);
 //       }
 
-const donut2 = document.getElementById('donut_content').getContext('2d');
 
-const mySecondDonutChart = new Chart(donut2, {
-    type: 'doughnut',
-    data: {
-        labels: ['N予備校', '課題', 'ドットインストール'],
-        datasets: [{
-            data: [40, 40, 20],
-            backgroundColor: [
-              '#0445ec',
-              '#0f70bd',
-              '#20bdde',
-            ],
-            borderColor: 'transparent'
-        }],
-    },
-    plugins: [ChartDataLabels],
-    options: {
-        responsive: true,
-        plugins: {
-          legend: {
-            display: false
-          },
-          datalabels: {
-            color: '#fff',
-            formatter: function(value) {
-              return value + '%';
-            }
-          }
-        },
-    },
-    
-});
 
 // TWITTER
 

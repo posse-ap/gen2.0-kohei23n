@@ -18,9 +18,56 @@ $total = $total_stmt->fetch() ?: 0;
 // https://www.phptutorial.net/php-tutorial/php-ternary-operator/ 
 
 //棒グラフデータ
-$bar_stmt = $db->query("SELECT SUM(study_time) FROM records GROUP BY study_date HAVING DATE_FORMAT(study_date, '%M/%Y') = DATE_FORMAT(now(), '%M/%Y')");
+$bar_stmt = $db->query(
+  "SELECT 
+    SUM(study_time) 
+  FROM 
+    records 
+  GROUP BY
+    study_date 
+  HAVING
+    DATE_FORMAT(study_date, '%M/%Y') = DATE_FORMAT(now(), '%M/%Y')"
+);
 $bars = $bar_stmt->fetchAll() ?: 0;
 
+//学習言語円グラフデータ
+$language_stmt = $db->query(
+  "SELECT 
+    languages.language, SUM(records.study_time), languages.colour
+  FROM 
+    records
+  JOIN 
+    languages ON records.language_id = languages.id 
+  GROUP BY
+    languages.language, languages.colour");
+$languages = $language_stmt->fetchAll() ?: 0;
+
+//学習言語円グラフデータ、 % を計算する用
+$percentage_stmt = $db->query(
+  "SELECT 
+    languages.language, SUM(records.study_time), languages.colour
+  FROM 
+    records
+  JOIN 
+    languages ON records.language_id = languages.id
+  GROUP BY
+    languages.language, languages.colour"
+  );
+$percentages = $percentage_stmt->fetchAll() ?: 0;
+
+
+
+//学習コンテンツ円グラフデータ
+$content_stmt = $db->query(
+  "SELECT
+    contents.content, SUM(records.study_time)
+  FROM 
+    records 
+  JOIN 
+    contents ON records.content_id = contents.id 
+  GROUP BY 
+    contents.content");
+$contents = $content_stmt->fetchAll() ?: 0;
 
 
 ?>
@@ -275,24 +322,24 @@ $bars = $bar_stmt->fetchAll() ?: 0;
           </div>
           <div class="mobilemodal_content">
             <h1 class="mobilemodal_title">学習コンテンツ（複数選択可）</h1>
-              <div class="option_cont">
-                <div class="option mobilecontent_op">
-                  <div class="arrow_check"></div>
-                  <div class="circle_gray mobilecircle_content"></div>
-                  <p class="label">N予備校</p>
-                </div class="option">
-                <div class="option mobilecontent_op" >
-                  <div class="arrow_check"></div>
-                  <div class="circle_gray mobilecircle_content"></div>
-                  <p class="label">ドットインストール</p>
-                </div class="option">
-                <div class="option mobilecontent_op">
-                  <div class="arrow_check"></div>
-                  <div class="circle_gray mobilecircle_content"></div>
-                  <p class="label">POSSE課題</p>
-                </div class="option">
-              </div>
-   </div>
+            <div class="option_cont">
+              <div class="option mobilecontent_op">
+                <div class="arrow_check"></div>
+                <div class="circle_gray mobilecircle_content"></div>
+                <p class="label">N予備校</p>
+              </div class="option">
+              <div class="option mobilecontent_op">
+                <div class="arrow_check"></div>
+                <div class="circle_gray mobilecircle_content"></div>
+                <p class="label">ドットインストール</p>
+              </div class="option">
+              <div class="option mobilecontent_op">
+                <div class="arrow_check"></div>
+                <div class="circle_gray mobilecircle_content"></div>
+                <p class="label">POSSE課題</p>
+              </div class="option">
+            </div>
+          </div>
           <div class="mobilemodal_lang">
             <h1 class="mobilemodal_title">学習言語（複数選択可）</h1>
             <div class="option_cont">
@@ -371,20 +418,16 @@ $bars = $bar_stmt->fetchAll() ?: 0;
 
   </main>
   
-  <script src="webapp.js"></script>
+
   <script>
+    
+  // 学習時間棒グラフ
   
   const column = document.getElementById('column').getContext('2d');
 
   var gradient = column.createLinearGradient(0, 0, 0, 300);
   gradient.addColorStop(0, 'rgba(54, 206, 254, 1)');
   gradient.addColorStop(1, 'rgba(17,115,189, 1)');
-
-  <?php 
-  // 学習時間棒グラフ
-  $graph_stmt = $db->query("SELECT * FROM records");
-  $graphs = $graph_stmt->fetchAll() ?: 0;
-  ?>
   
   const myColumnChart = new Chart(column, {
       // label: 'none',
@@ -459,6 +502,121 @@ $bars = $bar_stmt->fetchAll() ?: 0;
       
   });
 
+  // STUDY LANGUAGE
+
+  const donut1 = document.getElementById('donut_lang').getContext('2d');
+
+  const myFirstDonutChart = new Chart(donut1, {
+      type: 'doughnut',
+      data: {
+          labels: ['CSS', 'HTML', 'Javascript', 'Laravel', 'PHP', 'SHELL', 'SQL', 'その他'],
+          datasets: [{
+              // data: [30, 20, 20, 20, 10, 10, 5, 5],
+              data: [
+                <?php 
+                foreach ($languages as $language) {
+                  echo $language['SUM(records.study_time)'] . ",";
+                }
+                ?>
+              ],
+              backgroundColor: [
+                "#0f70bd",
+                "#0445ec",
+                "#b29ef3",
+                "#3005c0",
+                "#4a17ef",
+                "#3ccefe",
+                "#20bdde",
+                "#6c46eb",
+              ],
+              // backgroundColor: [
+              //   <?php 
+              //   foreach ($languages as $language) {
+              //     echo "\"" . $language['languages.colour)'] . "\",";
+              //   }
+              //   ?>
+              // ],
+              borderColor: 'transparent'
+          }],
+      },
+      plugins: [ChartDataLabels],
+      options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              display: false
+            },
+            datalabels: {
+              color: '#fff',
+              // formatter: function(value) {
+              //   return value + '%';
+              // }
+              formatter: (value, ctx) => {
+                let sum = 0;
+                let dataArr = ctx.chart.data.datasets[0].data;
+                dataArr.map(data => {
+                    sum += data;
+                });
+                let percentage = (value*100 / sum).toFixed(0)+"%";
+                return percentage;
+              },
+            }
+          },
+      },
+      
+  });
+
+  const donut2 = document.getElementById('donut_content').getContext('2d');
+
+  const mySecondDonutChart = new Chart(donut2, {
+      type: 'doughnut',
+      data: {
+          labels: ['N予備校', '課題', 'ドットインストール'],
+          datasets: [{
+              // data: [40, 40, 20],
+              data: [
+                <?php 
+                foreach ($contents as $content) {
+                  echo $content['SUM(records.study_time)'] . ",";
+                }
+                ?>
+              ],
+              backgroundColor: [
+                '#0445ec',
+                '#0f70bd',
+                '#20bdde',
+              ],
+              borderColor: 'transparent'
+          }],
+      },
+      plugins: [ChartDataLabels],
+      options: {
+          responsive: true,
+          plugins: {
+            legend: {
+              display: false
+            },
+            datalabels: {
+              color: '#fff',
+              // formatter: function(value) {
+              //   return value + '%';
+              // }
+              formatter: (value, ctx) => {
+                let sum = 0;
+                let dataArr = ctx.chart.data.datasets[0].data;
+                dataArr.map(data => {
+                    sum += data;
+                });
+                let percentage = (value*100 / sum).toFixed(0)+"%";
+                return percentage;
+              },
+            }
+          },
+      },
+      
+  });
+
   </script>
+    <script src="webapp.js"></script>
 </body>
 </html>
