@@ -473,9 +473,13 @@ body {
   border: none;
 }
 
-.tweet_button {
-  line-height: 20px;
+.twitter_button {
+  width: 100%;
+  text-decoration: none;
+  color: #fff;
 }
+
+
 
 .twitter_circle {
   height: 40px;
@@ -534,9 +538,14 @@ body {
   transform: translateX(-50%);
 }
 
-.modal_bottom a {
+.modal_bottom button {
   text-decoration: none;
   color: #ffffff;
+  background-color: inherit;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
 }
 
 .modal_bottom:hover {

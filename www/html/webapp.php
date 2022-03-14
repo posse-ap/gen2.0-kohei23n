@@ -1,5 +1,6 @@
 <?php 
 
+// まずは接続テスト
 require('dbconnect.php');
 
 // 今日の学習時間
@@ -15,6 +16,7 @@ $total_stmt = $db->query("SELECT SUM(study_time) FROM records");
 $total = $total_stmt->fetch() ?: 0;
 
 // ?: = ternary operator, same as < condition ? value1 : value2; >
+// ここでは、入力されているデータがない場合 0 にする処理
 // https://www.phptutorial.net/php-tutorial/php-ternary-operator/ 
 
 //棒グラフデータ
@@ -41,21 +43,6 @@ $language_stmt = $db->query(
   GROUP BY
     languages.language, languages.colour");
 $languages = $language_stmt->fetchAll() ?: 0;
-
-//学習言語円グラフデータ、 % を計算する用
-$percentage_stmt = $db->query(
-  "SELECT 
-    languages.language, SUM(records.study_time), languages.colour
-  FROM 
-    records
-  JOIN 
-    languages ON records.language_id = languages.id
-  GROUP BY
-    languages.language, languages.colour"
-  );
-$percentages = $percentage_stmt->fetchAll() ?: 0;
-
-
 
 //学習コンテンツ円グラフデータ
 $content_stmt = $db->query(
@@ -283,20 +270,26 @@ $contents = $content_stmt->fetchAll() ?: 0;
             </div>
             <div class="modal_twitter">
               <h1 class="modal_title">Twitter用コメント</h1>
-              <textarea id = "tweetBox" onkeyup="GetTweet(value)" cols="51" rows="10" class="tweet_area"></textarea>
+              <textarea id = "tweetBox" cols="51" rows="10" class="tweet_area"></textarea>
             </div>
             <div class="modal_twitter_share">
-              <div class="arrow_check_twitter"></div>
-              <div class="twitter_circle" id="twitter_circle"></div>
-              <span id="TWEET" class="tweet_button_cont">
-                <a class="tweet_button" href="https://twitter.com/intent/tweet?text=" target="_blank" >Twitterにシェアする</a>
-              </span>
+              <input id="twitter_circle" type="checkbox" style="display: none">
+              <label id="twitter_label" for="twitter_circle" class="twitter_circle">
+                <div class="arrow_check_twitter"></div> 
+              </label>
+              <span id="tweet">Twitterにシェアする</span>
+              <!-- <div class="twitter_circle" id="twitter_circle"></div> -->
+              <!-- <span id="TWEET" class="tweet_button_cont"> -->
+                <!-- <a class="tweet_button" href="https://twitter.com/intent/tweet?text=" target="_blank" >Twitterにシェアする</a> -->
+                <!-- Twitterにシェアする -->
+              <!-- </span> -->
             </div>
           </div> 
         </div>
         <!-- MODAL BOTTOM -->
         <div class="modal_bottom" id="modal_bottom">
-          <a href="#modal" id="bottom_btn">記録・投稿</a>
+          <!-- <a href="#modal" id="bottom_btn">記録・投稿</a> -->
+          <button id="bottom_btn">記録・投稿</button>
         </div>
         <!-- X BUTTON -->
         <div class="x" id="close"></div>
@@ -417,6 +410,12 @@ $contents = $content_stmt->fetchAll() ?: 0;
     </div>
 
   </main>
+
+<?php 
+
+require('graphs.php');
+
+?>
   
 
   <script>

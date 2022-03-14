@@ -176,7 +176,7 @@ for (let i = 0; i <= 7; i++) {
 
 let twittercircle = document.getElementById('twitter_circle');
 twittercircle.addEventListener('click', function() {
-  twittercircle.classList.toggle('twitter_circle_checked');
+  document.getElementById('twitter_label').classList.toggle('twitter_circle_checked');
 })
 
 
@@ -346,14 +346,42 @@ twittercircle.addEventListener('click', function() {
 
 
 
-// TWITTER
+// TWITTER投稿
 
-function GetTweet(str,code) {
-    var text_all = document.getElementById("tweetBox");
-    var input_data = text_all.value.replace(/\r?\n/g, '%0D%0A');
-    TWEET.innerHTML =　'<a class="twitter_button" href="https://twitter.com/intent/tweet?text=' + input_data + '" target="_blank">Twitterにシェアする</a>'
-}
+// function GetTweet(str,code) {
+//     var text_all = document.getElementById("tweetBox");
+//     var input_data = text_all.value.replace(/\r?\n/g, '%0D%0A');
+//     TWEET.innerHTML =　'<a class="twitter_button" href="https://twitter.com/intent/tweet?text=' + input_data + '" target="_blank">Twitterにシェアする</a>'
+// }
 
-let seperate = document.getElementById('Hello');
+$(function(){
+  $('#twitter_circle').click(function(){
+    if ($('#twitter_circle').prop('checked')) {
+      // tweetBox の内容を取得。2行目は詳しくわからないけど、形式を整えてる感じかな？
+      let text_all = document.getElementById("tweetBox");
+      let input_data = text_all.value.replace(/\r?\n/g, '%0D%0A');
+
+      // ボタンタグの中に、twitterに飛ぶ a タグをつくる感じ。
+      const redirect = document.createElement('a');
+      // tweetBox の内容を tweet に埋め込む
+      const hrefValue ='https://twitter.com/intent/tweet?text=' + input_data;
+      redirect.setAttribute('href', hrefValue);
+      // 新しいタブで開く
+      const targetValue = '_blank';
+      redirect.setAttribute('target', targetValue);
+      redirect.classList.add('twitter_button');
+      // bottom_btn にすでに「記録・投稿」が割り当てられているから、今回は元々のボタンの innerText を空にしてる
+      redirect.innerText = "記録・投稿"
+      document.getElementById('bottom_btn').innerText = "";
+      document.getElementById('bottom_btn').appendChild(redirect);
+      
+    } else {
+      console.log('bad');
+    }
+  });
+});
+
+
+
 
 
