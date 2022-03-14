@@ -19,13 +19,6 @@ let clickfunction = function (questionnumber, chosennumber, answernumber) {
         wrongbox.classList.add('wrong_ansarea');
         clicked.classList.add('oneclick');
     }
-
-    // 一回クリックしたら再度クリックできなくする
-    // for (let i = 1; i <= 6; i++) {
-    //     document.getElementById(`question${questionnumber}_choice${i}`).classList.add('oneclick');
-    // };
-
-
 }
 
 
