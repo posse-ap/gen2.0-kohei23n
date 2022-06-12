@@ -14,10 +14,16 @@ use App\Http\Middleware\HelloMiddleware;
 |
 */
 
+Route::get('/', function () {
+  return view('list');
+});
+
 
 Route::get('hello', 'HelloController@index');
 Route::post('hello', 'HelloController@post');
 
+Route::get('quiz/1', 'QuizController@index1');
+Route::get('quiz/2', 'QuizController@index2');
 
 
 
