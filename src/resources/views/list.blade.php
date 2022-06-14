@@ -6,11 +6,10 @@
         <title>クイズ一覧</title>
     </head>
     <body>
+      @foreach ($links as $link)
       <div>
-        <a href="quiz/1">ガチで東京の人しか解けない！＃東京の難読地名クイズ</a>
+        <a href="quiz/{{$link->id}}">{{$link->name}}</a>
       </div>
-      <div>
-        <a href="quiz/2">広島県民なら解けて当然？＃広島の難読地名クイズ</a>
-      </div>
+      @endforeach
     </body>
 </html>
