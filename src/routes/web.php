@@ -30,3 +30,5 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/admin/list', 'AdminController@list')
       ->middleware('auth');
+Route::get('/admin/quiz/{id}', 'AdminController@bigquestions');
+

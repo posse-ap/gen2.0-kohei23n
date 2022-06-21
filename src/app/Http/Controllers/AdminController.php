@@ -14,6 +14,13 @@ class AdminController extends Controller
     {
         $user = Auth::user();
         $links = BigQuestion::all();
-        return view('auth.list', ['links' => $links, 'user' => $user]);
+        return view('admin.list', ['links' => $links, 'user' => $user]);
+    }
+
+    public function bigquestions($id) 
+    {
+        // 問題を表示
+        $bigquestion = BigQuestion::where('id', $id)->get();
+        return view('admin.bigquestion', ['bigquestion' => $bigquestion]);
     }
 }
