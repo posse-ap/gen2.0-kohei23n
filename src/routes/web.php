@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', 'QuizController@index_links');
+Route::get('/', 'QuizController@list');
 Route::get('quiz/{id}', 'QuizController@index_questions');
 
 
