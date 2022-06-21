@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>quiz</title> 
+        <title>quiz</title>
         <link rel="stylesheet" type="text/css" href="/css/style.css" />
     </head>
     <body>
@@ -12,7 +12,7 @@
             <img src="/images/{{$question->image}}" alt="">
 
             <ul class="ul" id="question{{$question->id}}_choices">
-                @foreach ($question->choices as $choice) 
+                @foreach ($question->choices as $choice)
 
                 <li class="q" id="question{{$question->id}}_choice{{$loop->iteration}}"
                 onclick="clickfunction({{$question->id}}, {{$loop->iteration}})"

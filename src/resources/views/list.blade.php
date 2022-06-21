@@ -8,7 +8,7 @@
     <body>
       @foreach ($links as $link)
       <div>
-        <a href="quiz/{{$link->id}}">{{$link->name}}</a>
+        <a href="/quiz/{{$link->id}}">{{$link->name}}</a>
       </div>
       @endforeach
     </body>
