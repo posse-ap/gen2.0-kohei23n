@@ -20,6 +20,7 @@ use App\Http\Middleware\HelloMiddleware;
 
 
 
+
 Route::get('/', 'QuizController@index_links');
 Route::get('quiz/{id}', 'QuizController@index_questions');
 
