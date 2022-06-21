@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>quiz1</title> 
+        <title>quiz</title> 
         <link rel="stylesheet" type="text/css" href="/css/style.css" />
     </head>
     <body>

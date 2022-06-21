@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::get('/', 'QuizController@list');
+Route::get('quiz', 'QuizController@list');
 Route::get('quiz/{id}', 'QuizController@index_questions');
 
 
@@ -23,3 +24,9 @@ Route::get('quiz/{id}', 'QuizController@index_questions');
 
 
 
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/admin/list', 'AdminController@list')
+      ->middleware('auth');
