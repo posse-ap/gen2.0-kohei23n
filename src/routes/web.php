@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Middleware\HelloMiddleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,12 +12,6 @@ use App\Http\Middleware\HelloMiddleware;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-// Route::get('/', function () {
-//   return view('list');
-// });
-
-
 
 
 Route::get('/', 'QuizController@index_links');
