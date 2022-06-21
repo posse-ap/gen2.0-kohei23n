@@ -12,7 +12,7 @@
             <img src="/images/{{$question->image}}" alt="">
 
             <ul class="ul" id="question{{$question->id}}_choices">
-                @foreach ($choices[$loop->index] as $choice) 
+                @foreach ($question->choices as $choice) 
 
                 <li class="q" id="question{{$question->id}}_choice{{$loop->iteration}}"
                 onclick="clickfunction({{$question->id}}, {{$loop->iteration}})"
