@@ -18,6 +18,7 @@ class CreateChoicesTable extends Migration
             $table->integer('question_id');
             $table->string('name');
             $table->integer('valid');
+            $table->integer('hide');
         });
     }
 

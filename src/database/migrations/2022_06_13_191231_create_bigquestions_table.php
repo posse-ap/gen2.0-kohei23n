@@ -16,6 +16,8 @@ class CreateBigquestionsTable extends Migration
         Schema::create('big_questions', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
+            $table->integer('hide');
+            $table->integer('sortID');
         });
     }
 
