@@ -15,7 +15,7 @@ class QuizController extends Controller
     {
         // big_questions テーブルのデータを全て取得し $links に格納
         // $links = DB::table('bigquestions')->get(); 
-        $links = BigQuestion::all();
+        $links = BigQuestion::where('hide', 0)->get();
         // list.blade.php で foreach を回し問題リストを表示させる
         return view('list', ['links' => $links]);
     }
@@ -24,7 +24,7 @@ class QuizController extends Controller
     public function index_questions($id) 
     {
         // 問題を表示
-        $questions = Question::where('big_question_id', $id)->get();
+        $questions = Question::where('big_question_id', $id)->where('hide', 0)->get();
 
         return view('quiz', ['questions' => $questions]);
     }

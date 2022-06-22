@@ -117,11 +117,10 @@ class AdminController extends Controller
 
     public function remove_question($id)
     {
-        $big_question = BigQuestion::find($id);
         $question = Question::find($id);
         $question->hide = 1;
         $question->save();
-        return redirect('/admin/small_questions'.$big_question->id);
+        return redirect('/admin/small_questions/'.$question->big_question_id);
     }
 
     // 選択肢関連

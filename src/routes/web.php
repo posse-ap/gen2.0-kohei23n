@@ -41,7 +41,6 @@ Route::get('/admin/big_questions/edit/{id}', 'AdminController@edit_title');
 Route::post('/admin/big_questions/edit/{id}', 'AdminController@update_title');
 
 // 設問関連
-
 Route::get('/admin/small_questions/{id}', 'AdminController@manage_questions');
 
 Route::get('/admin/small_questions/{id}/add', 'AdminController@add_question');

@@ -10,6 +10,6 @@ class Question extends Model
 
     public function choices()
     {
-        return $this->hasMany('App\Choice');
+        return $this->hasMany('App\Choice')->where('hide', 0);
     }
 }
