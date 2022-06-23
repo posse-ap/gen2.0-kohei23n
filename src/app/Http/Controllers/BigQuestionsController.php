@@ -6,10 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\BigQuestion;
 use App\Question;
-use App\Choice;
 
 
-class AdminController extends Controller
+class BigQuestionsController extends Controller
 {
     // 問題リスト表示用
     public function list(Request $request) 
@@ -34,7 +33,7 @@ class AdminController extends Controller
         $big_questions = BigQuestion::where('hide', 0)->orderBy('sortID', 'asc')->get();
 
 
-        return view('admin.list', ['big_questions' => $big_questions, 'questions' => $questions, 'user' => $user]);
+        return view('admin.big_questions.list', ['big_questions' => $big_questions, 'questions' => $questions, 'user' => $user]);
     }
 
     public function add_title(Request $request)

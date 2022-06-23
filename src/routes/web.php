@@ -32,19 +32,19 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::post('/admin/big_questions', 'BigQuestions@list');
-Route::get('/admin/big_questions', 'BigQuestions@list')
+Route::post('/admin/big_questions', 'BigQuestionsController@list');
+Route::get('/admin/big_questions', 'BigQuestionsController@list')
       ->middleware('auth');
 
 
-Route::get('/admin/big_questions/add', 'BigQuestions@add_title');
-Route::post('/admin/big_questions/add', 'BigQuestions@create_title');
+Route::get('/admin/big_questions/add', 'BigQuestionsController@add_title');
+Route::post('/admin/big_questions/add', 'BigQuestionsController@create_title');
 
-Route::get('/admin/big_questions/delete/{id}', 'BigQuestions@delete_title');
-Route::post('/admin/big_questions/delete/{id}', 'BigQuestions@remove_title');
+Route::get('/admin/big_questions/delete/{id}', 'BigQuestionsController@delete_title');
+Route::post('/admin/big_questions/delete/{id}', 'BigQuestionsController@remove_title');
 
-Route::get('/admin/big_questions/edit/{id}', 'BigQuestions@edit_title');
-Route::post('/admin/big_questions/edit/{id}', 'BigQuestions@update_title');
+Route::get('/admin/big_questions/edit/{id}', 'BigQuestionsController@edit_title');
+Route::post('/admin/big_questions/edit/{id}', 'BigQuestionsController@update_title');
 
 // 設問関連
 Route::post('/admin/small_questions/{id}', 'QuestionsController@manage_questions');
