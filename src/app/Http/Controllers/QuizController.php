@@ -24,7 +24,7 @@ class QuizController extends Controller
     public function index_questions($id) 
     {
         // 問題を表示
-        $questions = Question::where('big_question_id', $id)->where('hide', 0)->get();
+        $questions = Question::where('big_question_id', $id)->where('hide', 0)->orderBy('sortID', 'asc')->get();
 
         return view('quiz', ['questions' => $questions]);
     }

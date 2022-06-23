@@ -18,6 +18,9 @@ use Illuminate\Support\Facades\Auth;
 Route::get('quiz', 'QuizController@list');
 Route::get('quiz/{id}', 'QuizController@index_questions');
 
+Route::get('test', 'AdminController@test');
+
+
 
 
 
@@ -28,8 +31,11 @@ Route::get('quiz/{id}', 'QuizController@index_questions');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('/admin/big_questions', 'AdminController@list');
 Route::get('/admin/big_questions', 'AdminController@list')
       ->middleware('auth');
+
 
 Route::get('/admin/big_questions/add', 'AdminController@add_title');
 Route::post('/admin/big_questions/add', 'AdminController@create_title');
@@ -41,6 +47,7 @@ Route::get('/admin/big_questions/edit/{id}', 'AdminController@edit_title');
 Route::post('/admin/big_questions/edit/{id}', 'AdminController@update_title');
 
 // 設問関連
+Route::post('/admin/small_questions/{id}', 'AdminController@manage_questions');
 Route::get('/admin/small_questions/{id}', 'AdminController@manage_questions');
 
 Route::get('/admin/small_questions/{id}/add', 'AdminController@add_question');

@@ -12,8 +12,4 @@ class BigQuestion extends Model
         'hide' => 0,
     ];
 
-    public function getSortIDAttribute()
-    {
-        return $this->id + 100;
-    }
 }

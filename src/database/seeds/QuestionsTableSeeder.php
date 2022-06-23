@@ -17,6 +17,7 @@ class QuestionsTableSeeder extends Seeder
             'big_question_id' => 1,
             'image' => 'takanawa.png',
             'hide' => 0,
+            'sortID' => 1,
         ];
         DB::table('questions')->insert($param);
 
@@ -24,6 +25,7 @@ class QuestionsTableSeeder extends Seeder
             'big_question_id' => 1,
             'image' => 'kameido.png',
             'hide' => 0,
+            'sortID' => 2,
         ];
         DB::table('questions')->insert($param);
 
@@ -31,6 +33,7 @@ class QuestionsTableSeeder extends Seeder
             'big_question_id' => 1,
             'image' => 'kojimachi.png',
             'hide' => 0,
+            'sortID' => 3,
         ];
         DB::table('questions')->insert($param);
 
@@ -38,6 +41,7 @@ class QuestionsTableSeeder extends Seeder
             'big_question_id' => 2,
             'image' => 'mukainada.png',
             'hide' => 0,
+            'sortID' => 1,
         ];
         DB::table('questions')->insert($param);
 
@@ -45,6 +49,7 @@ class QuestionsTableSeeder extends Seeder
             'big_question_id' => 2,
             'image' => 'mitsugi.png',
             'hide' => 0,
+            'sortID' => 2,
         ];
         DB::table('questions')->insert($param);
 
@@ -52,6 +57,7 @@ class QuestionsTableSeeder extends Seeder
             'big_question_id' => 2,
             'image' => 'kanayama.png',
             'hide' => 0,
+            'sortID' => 3,
         ];
         DB::table('questions')->insert($param);
     }

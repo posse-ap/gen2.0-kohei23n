@@ -15,17 +15,24 @@ class AdminController extends Controller
     public function list(Request $request) 
     {
         $user = Auth::user();
-        // $big_questions = BigQuestion::where('hide', 0)->orderBy('sortID', 'asc')->get();
-        $sort = $request->get('sort');
-        if ($sort === '1') {
-                $big_questions = BigQuestion::where('hide', 0)->orderBy('sortID', 'desc')->get();
-        } else {
-                $big_questions = BigQuestion::where('hide', 0)->orderBy('sortID', 'asc')->get();
-        }
-
         $questions = Question::all();
 
-        
+
+        if (!empty($request->input('list-ids')))
+        {
+            $list = $request->input('list-ids');
+
+            $lists = explode(',', $list);
+
+            foreach($lists as $index => $id){
+                $big_question = BigQuestion::where('id', $id)->first();
+                $big_question->sortID = $index + 1;
+                $big_question->save();
+            }
+        } else { }
+
+        $big_questions = BigQuestion::where('hide', 0)->orderBy('sortID', 'asc')->get();
+
 
         return view('admin.list', ['big_questions' => $big_questions, 'questions' => $questions, 'user' => $user]);
     }
@@ -42,6 +49,7 @@ class AdminController extends Controller
         $big_question = new BigQuestion;
         $big_question->name = $request->input('title');
         $big_question->hide = 0;
+        $big_question->sortID = BigQuestion::max('id') + 1;
         $big_question->save();
         return redirect('/admin/big_questions');
     }
@@ -71,14 +79,35 @@ class AdminController extends Controller
         $big_question = BigQuestion::find($id);
         $big_question->name = $request->input('title');
         $big_question->save();
-        return redirect('/admin/big_questions'.$big_question->id);
+        return redirect('/admin/big_questions');
     }
 
     // 設問関連
-    public function manage_questions($id)
+    public function manage_questions(Request $request, $id)
     {
         $big_question = BigQuestion::find($id);
-        $questions = Question::where('big_question_id', $id)->where('hide', 0)->get();
+
+        if (!empty($request->input('list-ids')))
+        {
+            $list = $request->input('list-ids');
+
+
+            $lists = explode(',', $list);
+
+
+            // dd($lists);
+
+            foreach($lists as $index => $sort_id){
+                $question = Question::where('id', $sort_id)->first();
+                $question->sortID = $index + 1;
+                $question->save();
+            }
+        } else { }
+
+        $questions = Question::where('big_question_id', $id)->where('hide', 0)->orderBy('sortID', 'asc')->get();
+
+
+
 
         return view('admin.small_questions.list', ['big_question' => $big_question, 'questions' => $questions]);
     }
@@ -105,6 +134,7 @@ class AdminController extends Controller
 
         $question->image = $fileName;
         $question->hide = 0;
+        $question->sortID = Question::max('id') + 1;
         $question->save();
         return redirect('/admin/small_questions/'.$big_question->id);
     }
