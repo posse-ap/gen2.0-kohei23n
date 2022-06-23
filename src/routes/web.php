@@ -32,42 +32,42 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::post('/admin/big_questions', 'AdminController@list');
-Route::get('/admin/big_questions', 'AdminController@list')
+Route::post('/admin/big_questions', 'BigQuestions@list');
+Route::get('/admin/big_questions', 'BigQuestions@list')
       ->middleware('auth');
 
 
-Route::get('/admin/big_questions/add', 'AdminController@add_title');
-Route::post('/admin/big_questions/add', 'AdminController@create_title');
+Route::get('/admin/big_questions/add', 'BigQuestions@add_title');
+Route::post('/admin/big_questions/add', 'BigQuestions@create_title');
 
-Route::get('/admin/big_questions/delete/{id}', 'AdminController@delete_title');
-Route::post('/admin/big_questions/delete/{id}', 'AdminController@remove_title');
+Route::get('/admin/big_questions/delete/{id}', 'BigQuestions@delete_title');
+Route::post('/admin/big_questions/delete/{id}', 'BigQuestions@remove_title');
 
-Route::get('/admin/big_questions/edit/{id}', 'AdminController@edit_title');
-Route::post('/admin/big_questions/edit/{id}', 'AdminController@update_title');
+Route::get('/admin/big_questions/edit/{id}', 'BigQuestions@edit_title');
+Route::post('/admin/big_questions/edit/{id}', 'BigQuestions@update_title');
 
 // 設問関連
-Route::post('/admin/small_questions/{id}', 'AdminController@manage_questions');
-Route::get('/admin/small_questions/{id}', 'AdminController@manage_questions');
+Route::post('/admin/small_questions/{id}', 'QuestionsController@manage_questions');
+Route::get('/admin/small_questions/{id}', 'QuestionsController@manage_questions');
 
-Route::get('/admin/small_questions/{id}/add', 'AdminController@add_question');
-Route::post('/admin/small_questions/{id}/add', 'AdminController@create_question');
+Route::get('/admin/small_questions/{id}/add', 'QuestionsController@add_question');
+Route::post('/admin/small_questions/{id}/add', 'QuestionsController@create_question');
 
-Route::get('/admin/small_questions/delete/{id}', 'AdminController@delete_question');
-Route::post('/admin/small_questions/delete/{id}', 'AdminController@remove_question');
+Route::get('/admin/small_questions/delete/{id}', 'QuestionsController@delete_question');
+Route::post('/admin/small_questions/delete/{id}', 'QuestionsController@remove_question');
 
 
 // 選択肢関連
 
-Route::get('/admin/choices/{id}', 'AdminController@manage_choices');
+Route::get('/admin/choices/{id}', 'ChoicesController@manage_choices');
 
-Route::get('/admin/choices/{id}/add', 'AdminController@add_choice');
-Route::post('/admin/choices/{id}/add', 'AdminController@create_choice');
+Route::get('/admin/choices/{id}/add', 'ChoicesController@add_choice');
+Route::post('/admin/choices/{id}/add', 'ChoicesController@create_choice');
 
-Route::get('/admin/choices/delete/{id}', 'AdminController@delete_choice');
-Route::post('/admin/choices/delete/{id}', 'AdminController@remove_choice');
+Route::get('/admin/choices/delete/{id}', 'ChoicesController@delete_choice');
+Route::post('/admin/choices/delete/{id}', 'ChoicesController@remove_choice');
 
-Route::get('/admin/choices/edit/{id}', 'AdminController@edit_choice');
-Route::post('/admin/choices/edit/{id}', 'AdminController@update_choice');
+Route::get('/admin/choices/edit/{id}', 'ChoicesController@edit_choice');
+Route::post('/admin/choices/edit/{id}', 'ChoicesController@update_choice');
 
 
