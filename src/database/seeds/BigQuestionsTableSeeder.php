@@ -15,14 +15,12 @@ class BigQuestionsTableSeeder extends Seeder
     {
         $param = [
             'name' => 'ガチで東京の人しか解けない！＃東京の難読地名クイズ',
-            'hide' => 0,
             'sortID' => 1,
         ];
         DB::table('big_questions')->insert($param);
 
         $param = [
             'name' => '広島県民なら解けて当然？＃広島の難読地名クイズ',
-            'hide' => 0,
             'sortID' => 2,
         ];
         DB::table('big_questions')->insert($param);
