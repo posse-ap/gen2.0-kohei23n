@@ -18,12 +18,7 @@ class QuestionsController extends Controller
         if (!empty($request->input('list-ids')))
         {
             $list = $request->input('list-ids');
-
-
             $lists = explode(',', $list);
-
-
-            // dd($lists);
 
             foreach($lists as $index => $sort_id){
                 $question = Question::where('id', $sort_id)->first();
