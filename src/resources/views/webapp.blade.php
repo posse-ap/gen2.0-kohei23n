@@ -443,23 +443,23 @@
   const myFirstDonutChart = new Chart(donut1, {
       type: 'doughnut',
       data: {
-          labels: ['CSS', 'HTML', 'Javascript', 'Laravel', 'PHP', 'SHELL', 'SQL', 'その他'],
+          labels: [
+            @foreach ($langs as $lang)
+            " {{ $lang->language }} ",
+            @endforeach
+          ],
           datasets: [{
             
               data: [
-                @foreach ($lang as $lang_data)
-                {{ $lang_data->sum }},
+                @foreach ($langs as $lang)
+                {{ $lang->sum }},
                 @endforeach 
               ],
               backgroundColor: [
-                "#0f70bd",
-                "#0445ec",
-                "#b29ef3",
-                "#3005c0",
-                "#4a17ef",
-                "#3ccefe",
-                "#20bdde",
-                "#6c46eb",
+                @foreach ($langs as $lang)
+                " {{ $lang->colour }} ",
+                @endforeach
+                
               ],
               borderColor: 'transparent'
           }],
@@ -493,17 +493,21 @@
   const mySecondDonutChart = new Chart(donut2, {
       type: 'doughnut',
       data: {
-          labels: ['N予備校', '課題', 'ドットインストール'],
+          labels: [
+            @foreach ($contents as $content)
+            " {{ $content->content }} ",
+            @endforeach
+          ],
           datasets: [{
               data: [
-                @foreach ($content as $content_data)
-                {{ $content_data->sum }},
+                @foreach ($contents as $content)
+                {{ $content->sum }},
                 @endforeach 
               ],
               backgroundColor: [
-                '#0445ec',
-                '#0f70bd',
-                '#20bdde',
+                @foreach ($contents as $content)
+                " {{ $content->colour }} ",
+                @endforeach
               ],
               borderColor: 'transparent'
           }],

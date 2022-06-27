@@ -21,16 +21,16 @@ class AppController extends Controller
         // //合計学習時間
         $total = Record::sum('study_time');
 
-        // 円グラフ（言語）
-        $lang = Record::leftJoin('languages', 'records.language_id', '=', 'languages.id')
-                            ->select('languages.language', DB::raw("SUM(records.study_time) as sum"), 'languages.colour')
-                            ->groupBy('languages.language', 'languages.colour')
-                            ->get();
+        // 言語円グラフ（グラフで使うデータ、ラベル、色の取得）
+        $langs = Record::leftJoin('languages', 'records.language_id', '=', 'languages.id')
+                        ->select('languages.language', DB::raw("SUM(records.study_time) as sum"), 'languages.colour')
+                        ->groupBy('languages.language', 'languages.colour')
+                        ->get();
 
-        // 円グラフ（内容）
-        $content = Record::leftJoin('contents', 'records.content_id', '=', 'contents.id')
-                            ->select('contents.content', DB::raw("SUM(records.study_time) as sum"))
-                            ->groupBy('contents.content')
+        // コンテンツ円グラフ（グラフで使うデータ、ラベル、色の取得）
+        $contents = Record::leftJoin('contents', 'records.content_id', '=', 'contents.id')
+                            ->select('contents.content', DB::raw("SUM(records.study_time) as sum"), 'contents.colour')
+                            ->groupBy('contents.content', 'contents.colour')
                             ->get();
 
         // 棒グラフ
@@ -40,21 +40,8 @@ class AppController extends Controller
                         ->get();
 
 
-    //棒グラフデータ
-    // $bar_stmt = $db->query(
-    // "SELECT 
-    //     SUM(study_time) 
-    // FROM 
-    //     records 
-    // GROUP BY
-    //     study_date   
-    // HAVING
-    //     DATE_FORMAT(study_date, '%M/%Y') = DATE_FORMAT(now(), '%M/%Y')"
-    // );
-    // $bars = $bar_stmt->fetchAll() ?: 0;
-
-
-        return view('webapp', ['today' => $today, 'month' => $month, 'total' => $total, 'lang' => $lang, 'content' => $content, 'bar' => $bar]);
+        // return view('webapp', ['today' => $today, 'month' => $month, 'total' => $total, 'lang' => $lang, 'content' => $content, 'bar' => $bar, 'test' => $test]);
+        return view('webapp', compact('today', 'month', 'total', 'langs', 'contents', 'bar'));
     }
 
     
