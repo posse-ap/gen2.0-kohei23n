@@ -12,7 +12,7 @@ class QuizController extends Controller
 {
 
     // 問題リスト表示用
-    public function list(Request $request) 
+    public function list() 
     {
         // big_questions テーブルのデータを全て取得し $links に格納
         // $links = DB::table('bigquestions')->get(); 
