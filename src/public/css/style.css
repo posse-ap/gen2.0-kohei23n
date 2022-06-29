@@ -125,10 +125,10 @@ p {
 
 .list {
   width: 70%;
-  height: 50%;
   border: 1px solid #22abd8;
   margin: 100px auto 0 auto;
   overflow-x: scroll;
+  text-align: center;
 }
 
 .list_labels {
@@ -218,5 +218,11 @@ p {
   border-right: 1px solid #22abd8;
   padding: 2px;
 }
+
+.list_add {
+  /* display: inline-block; */
+  text-align: center;
+}
+
 
 
