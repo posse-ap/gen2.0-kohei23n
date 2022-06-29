@@ -5,7 +5,7 @@
 @section('content')
   @foreach ($links as $link)
   <div class="big_questions_container">
-    <a href="quiz/{{$link->id}}">{{$link->name}}</a>
+    <a href="{{ route('questions', ['id' => $link->id])  }}">{{$link->name}}</a>
   </div>
   @endforeach
 @endsection 

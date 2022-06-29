@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Auth;
 
 
 Route::get('quiz', 'QuizController@list');
-Route::get('quiz/{id}', 'QuizController@index_questions');
+Route::get('quiz/{id}', 'QuizController@index_questions')->name('questions');
 
 
 
