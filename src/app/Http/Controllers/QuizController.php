@@ -18,7 +18,7 @@ class QuizController extends Controller
         // $links = DB::table('bigquestions')->get(); 
         $bigQuestions = BigQuestion::all();
         // list.blade.php で foreach を回し問題リストを表示させる
-        return view('list', ['links' => $links]);
+        return view('list', compact('bigQuestions'));
     }
 
     // 問題表示用

@@ -6,9 +6,9 @@
         <title>クイズ一覧</title>
     </head>
     <body>
-      @foreach ($links as $link)
+      @foreach ($bigQuestions as $bigQuestion)
       <div>
-        <a href="quiz/{{$link->id}}">{{$link->name}}</a>
+        <a href="quiz/{{$bigQuestion->id}}">{{$bigQuestion->name}}</a>
       </div>
       @endforeach
     </body>
