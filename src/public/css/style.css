@@ -4,6 +4,22 @@
   text-align: center;
 }
 
+/* クイズ編集用 */
+
+.edit {
+  margin-top: 100px;
+  text-align: center;
+}
+
+.edit_input {
+  width: 50%;
+}
+
+.edit_input--small {
+  width: 20%;
+}
+
+
 
 /* クイズ用 */
 
