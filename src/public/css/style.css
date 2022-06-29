@@ -51,7 +51,7 @@ img {
   content: '';
 }
 
-.ul, .ul_admin {
+.ul, .ul_admin, .ul_edit {
   padding-inline-start: 0;
   list-style-type: none;
 }
