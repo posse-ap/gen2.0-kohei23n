@@ -9,7 +9,7 @@
         <div class="qDiv">
             @foreach ($questions as $question)
             <h1 class="nameunderline">{{$loop->iteration}}.この地名は何て読む？</h1>
-            <img src="/images/{{$question->image}}" alt="">
+            <img src="/images/{{$question->image}}" alt="地名の画像">
 
             <ul class="ul" id="question{{$question->id}}_choices">
                 @foreach ($question->choices as $choice) 

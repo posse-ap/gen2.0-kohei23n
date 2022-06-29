@@ -1,3 +1,11 @@
+/* クイズ一覧用 */
+
+<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+
+
+/* クイズ用 */
+
 .qDiv {
   max-width: 650px;
   width: 100%;
