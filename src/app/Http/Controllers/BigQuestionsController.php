@@ -28,7 +28,7 @@ class BigQuestionsController extends Controller
                 $big_question->sortID = $index + 1;
                 $big_question->save();
             }
-        } else { }
+        } 
 
         $big_questions = BigQuestion::where('hide', 0)->orderBy('sortID', 'asc')->get();
 
