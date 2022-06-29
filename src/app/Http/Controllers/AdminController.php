@@ -10,7 +10,7 @@ use App\BigQuestion;
 class AdminController extends Controller
 {
     // 問題リスト表示用
-    public function list(Request $request) 
+    public function list() 
     {
         $user = Auth::user();
         $links = BigQuestion::all();
