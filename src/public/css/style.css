@@ -19,6 +19,10 @@
   width: 20%;
 }
 
+.options {
+  text-align: center;
+}
+
 
 
 /* クイズ用 */
@@ -47,12 +51,16 @@ img {
   content: '';
 }
 
-.ul {
+.ul, .ul_admin {
   padding-inline-start: 0;
   list-style-type: none;
 }
 
-.q {
+.ul_admin {
+  margin-top: 50px;
+}
+
+.q, .q_admin {
   display: block;
   width: 592px;
   border: 1px solid #ebebeb;
@@ -63,6 +71,12 @@ img {
   box-shadow: 0 3px 2px -2px rgb(0 0 0 / 13%);
   -webkit-box-shadow: 0 3px 2px -2px rgb(0 0 0 / 13%);
   -moz-box-shadow: 0 3px 2px -2px rgba(0,0,0,.13);
+}
+
+.q_admin {
+  background-color: #fff;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .correct {
