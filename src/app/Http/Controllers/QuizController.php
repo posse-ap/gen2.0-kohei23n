@@ -27,7 +27,7 @@ class QuizController extends Controller
         // 問題を表示
         $questions = Question::where('big_question_id', $id)->get();
 
-        return view('quiz', ['questions' => $questions]);
+        return view('quiz', compact('questions'));
     }
 
 }
