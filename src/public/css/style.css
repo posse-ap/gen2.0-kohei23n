@@ -1,7 +1,8 @@
 /* クイズ一覧用 */
 
-<link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+.big_questions_container {
+  text-align: center;
+}
 
 
 /* クイズ用 */
