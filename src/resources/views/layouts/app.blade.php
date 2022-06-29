@@ -10,13 +10,7 @@
     {{-- <title>{{ config('app.name', 'Laravel') }}</title> --}}
     <title>@yield('title')</title>
 
-    <!-- Scripts -->
-    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/jquery-sortablejs@latest/jquery-sortable.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
-    {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
+
     
 
     <!-- Fonts -->
@@ -85,4 +79,15 @@
         {{-- </main> --}}
     </div>
 </body>
+
+<!-- Scripts -->
+
+<script src="{{ asset('js/app.js') }}"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+@yield('script')
+
 </html>

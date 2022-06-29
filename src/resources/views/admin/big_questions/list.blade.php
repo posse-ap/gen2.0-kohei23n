@@ -31,7 +31,9 @@
       <button id="submit">並び替えを更新</button>
     </div>
   </form>
+@endsection 
 
+@section('script')
   <script>
     $(function() {
       $(".sortable").sortable();
