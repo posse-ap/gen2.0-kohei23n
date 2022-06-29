@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', '大問の追加')
+
 @section('content')
   <form class="edit" action="" method="post">
   @csrf
