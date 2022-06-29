@@ -25,12 +25,12 @@ class BigQuestionsController extends Controller
 
             foreach($lists as $index => $id){
                 $big_question = BigQuestion::where('id', $id)->first();
-                $big_question->sortID = $index + 1;
+                $big_question->sort = $index + 1;
                 $big_question->save();
             }
         } 
 
-        $big_questions = BigQuestion::where('hide', 0)->orderBy('sortID', 'asc')->get();
+        $big_questions = BigQuestion::where('hide', 0)->orderBy('sort', 'asc')->get();
 
 
         return view('admin.big_questions.list', ['big_questions' => $big_questions, 'questions' => $questions, 'user' => $user]);
@@ -46,7 +46,7 @@ class BigQuestionsController extends Controller
         $big_question = new BigQuestion;
         $big_question->name = $request->input('title');
         $big_question->hide = 0;
-        $big_question->sortID = BigQuestion::max('id') + 1;
+        $big_question->sort = BigQuestion::max('id') + 1;
         $big_question->save();
         return redirect('/admin/big_questions');
     }

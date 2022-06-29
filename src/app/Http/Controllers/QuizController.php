@@ -22,7 +22,7 @@ class QuizController extends Controller
     public function index_questions($id) 
     {
         // 問題を表示
-        $questions = Question::with('choices')->where('big_question_id', $id)->where('hide', 0)->orderBy('sortID', 'asc')->get();
+        $questions = Question::with('choices')->where('big_question_id', $id)->where('hide', 0)->orderBy('sort', 'asc')->get();
 
         return view('quiz', compact('questions'));
     }

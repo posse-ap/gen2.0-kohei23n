@@ -16,42 +16,42 @@ class QuestionsTableSeeder extends Seeder
         $param = [
             'big_question_id' => 1,
             'image' => 'takanawa.png',
-            'sortID' => 1,
+            'sort' => 1,
         ];
         DB::table('questions')->insert($param);
 
         $param = [
             'big_question_id' => 1,
             'image' => 'kameido.png',
-            'sortID' => 2,
+            'sort' => 2,
         ];
         DB::table('questions')->insert($param);
 
         $param = [
             'big_question_id' => 1,
             'image' => 'kojimachi.png',
-            'sortID' => 3,
+            'sort' => 3,
         ];
         DB::table('questions')->insert($param);
 
         $param = [
             'big_question_id' => 2,
             'image' => 'mukainada.png',
-            'sortID' => 1,
+            'sort' => 1,
         ];
         DB::table('questions')->insert($param);
 
         $param = [
             'big_question_id' => 2,
             'image' => 'mitsugi.png',
-            'sortID' => 2,
+            'sort' => 2,
         ];
         DB::table('questions')->insert($param);
 
         $param = [
             'big_question_id' => 2,
             'image' => 'kanayama.png',
-            'sortID' => 3,
+            'sort' => 3,
         ];
         DB::table('questions')->insert($param);
     }

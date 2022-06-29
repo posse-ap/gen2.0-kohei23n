@@ -17,7 +17,7 @@ class CreateBigquestionsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('hide')->default(0);
-            $table->integer('sortID');
+            $table->integer('sort');
         });
     }
 

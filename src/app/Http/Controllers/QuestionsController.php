@@ -22,12 +22,12 @@ class QuestionsController extends Controller
 
             foreach($lists as $index => $sort_id){
                 $question = Question::where('id', $sort_id)->first();
-                $question->sortID = $index + 1;
+                $question->sort = $index + 1;
                 $question->save();
             }
         } else { }
 
-        $questions = Question::where('big_question_id', $id)->where('hide', 0)->orderBy('sortID', 'asc')->get();
+        $questions = Question::where('big_question_id', $id)->where('hide', 0)->orderBy('sort', 'asc')->get();
 
 
 
@@ -57,7 +57,7 @@ class QuestionsController extends Controller
 
         $question->image = $fileName;
         $question->hide = 0;
-        $question->sortID = Question::max('id') + 1;
+        $question->sort = Question::max('id') + 1;
         $question->save();
         return redirect('/admin/small_questions/'.$big_question->id);
     }
