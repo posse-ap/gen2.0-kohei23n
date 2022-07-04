@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+// use App\Models\Record;
+use App\Record;
+// use File;
 
 class RecordsTableSeeder extends Seeder
 {
@@ -108,7 +111,21 @@ class RecordsTableSeeder extends Seeder
                 'language_id' => 3,
                 'content_id' => 3,
                 ],
-            ]    
-            );
+            ]);
     }
+
+    // public function run()
+    // {
+    //     $json = File::get("database/data/records.json");
+    //     $countries = json_decode($json);
+
+    //     foreach ($countries as $value) {
+    //         Record::create([
+    //             "study_date" => $value->study_date,
+    //             "study_time" => $value->study_time,
+    //             "language_id" => $value->language_id,
+    //             "content_id" => $value->content_id
+    //         ]);
+    //     }
+    // }
 }

@@ -15,9 +15,8 @@ Route::get('/', function () {
       return view('welcome');
 });
 
-Route::get('/top', 'AppController@languages');
-Route::get('/top', 'AppController@index')
-      ->middleware('auth');
+Route::get('/top', 'AppController@index');
+      // ->middleware('auth');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

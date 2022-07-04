@@ -35,14 +35,12 @@ class AppController extends Controller
 
         // 棒グラフ
         $bar = Record::select(DB::raw("SUM(study_time) as sum"))
+                        ->whereYear('study_date', date('Y'))->whereMonth('study_date', date('m'))
                         ->groupBy('study_date')
-                        ->havingRaw(" DATE_FORMAT(study_date, '%M/%Y') = DATE_FORMAT(now(), '%M/%Y')")
                         ->get();
-
-
-        // return view('webapp', ['today' => $today, 'month' => $month, 'total' => $total, 'lang' => $lang, 'content' => $content, 'bar' => $bar, 'test' => $test]);
-        return view('webapp', compact('today', 'month', 'total', 'langs', 'contents', 'bar'));
+        
+        // return view('webapp', compact('today', 'month', 'total', 'langs', 'contents', 'bar'));
+        return $bar;
     }
-
     
 }
