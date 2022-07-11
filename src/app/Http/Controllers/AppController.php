@@ -1,0 +1,43 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Support\Facades\DB;
+use App\Record;
+use App\Language;
+use App\Content;
+
+class AppController extends Controller
+{
+    public function index()
+    {
+        // 今日の学習時間
+        $today = Record::whereDate('study_date', date('Y-m-d'))->sum('study_time');
+
+        // //今月の学習時間
+        $month = Record::whereYear('study_date', date('Y'))->whereMonth('study_date', date('m'))->sum('study_time');
+
+        // //合計学習時間
+        $total = Record::sum('study_time');
+
+        // 言語円グラフ（グラフで使うデータ、ラベル、色の取得）
+        // $langs = Record::leftJoin('languages', 'records.language_id', '=', 'languages.id')
+        //                 ->select('languages.language', DB::raw("SUM(records.study_time) as sum"), 'languages.colour')
+        //                 ->groupBy('languages.language', 'languages.colour')
+        //                 ->get();
+        $langs = Language::all();
+
+        // コンテンツ円グラフ（グラフで使うデータ、ラベル、色の取得）
+        $contents = Content::all();
+
+        // 棒グラフ
+        $bar = Record::select(DB::raw("SUM(study_time) as sum"))
+                        ->whereYear('study_date', date('Y'))->whereMonth('study_date', date('m'))
+                        ->groupBy('study_date')
+                        ->get();
+        
+        return view('webapp', compact('today', 'month', 'total', 'langs', 'contents', 'bar'));
+        // return $bar;
+    }
+    
+}
