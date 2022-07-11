@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
-use Illuminate\Http\Request;
 use App\Record;
 use App\Language;
 use App\Content;
@@ -22,16 +21,14 @@ class AppController extends Controller
         $total = Record::sum('study_time');
 
         // 言語円グラフ（グラフで使うデータ、ラベル、色の取得）
-        $langs = Record::leftJoin('languages', 'records.language_id', '=', 'languages.id')
-                        ->select('languages.language', DB::raw("SUM(records.study_time) as sum"), 'languages.colour')
-                        ->groupBy('languages.language', 'languages.colour')
-                        ->get();
+        // $langs = Record::leftJoin('languages', 'records.language_id', '=', 'languages.id')
+        //                 ->select('languages.language', DB::raw("SUM(records.study_time) as sum"), 'languages.colour')
+        //                 ->groupBy('languages.language', 'languages.colour')
+        //                 ->get();
+        $langs = Language::all();
 
         // コンテンツ円グラフ（グラフで使うデータ、ラベル、色の取得）
-        $contents = Record::leftJoin('contents', 'records.content_id', '=', 'contents.id')
-                            ->select('contents.content', DB::raw("SUM(records.study_time) as sum"), 'contents.colour')
-                            ->groupBy('contents.content', 'contents.colour')
-                            ->get();
+        $contents = Content::all();
 
         // 棒グラフ
         $bar = Record::select(DB::raw("SUM(study_time) as sum"))
@@ -39,8 +36,8 @@ class AppController extends Controller
                         ->groupBy('study_date')
                         ->get();
         
-        // return view('webapp', compact('today', 'month', 'total', 'langs', 'contents', 'bar'));
-        return $bar;
+        return view('webapp', compact('today', 'month', 'total', 'langs', 'contents', 'bar'));
+        // return $bar;
     }
     
 }

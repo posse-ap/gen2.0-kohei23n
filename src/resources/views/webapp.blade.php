@@ -385,7 +385,6 @@
               borderRadius: 50,
               borderSkipped: false,
           }],
-          // barPercentage: 0.3
       },
       options: {
           responsive: true,
@@ -409,7 +408,6 @@
                 maxRotation: 0,
                 minRotation: 0
               },
-              // barPercentage: 0.3
             },
             y: {
               grid: {
@@ -465,6 +463,7 @@
           }],
       },
       plugins: [ChartDataLabels],
+
       options: {
           responsive: true,
           plugins: {
@@ -472,6 +471,9 @@
               display: false
             },
             datalabels: {
+              display: function(context) {
+                return context.dataset.data[context.dataIndex] !== 0; // or >= 1 or ...
+              },
               color: '#fff',
               formatter: (value, ctx) => {
                 let sum = 0;
@@ -480,7 +482,9 @@
                     sum += data;
                 });
                 let percentage = (value*100 / sum).toFixed(0)+"%";
-                return percentage;
+                if (value != 0) {
+                  return percentage;
+                }
               },
             }
           },
@@ -520,6 +524,9 @@
               display: false
             },
             datalabels: {
+              display: function(context) {
+                return context.dataset.data[context.dataIndex] !== 0; // or >= 1 or ...
+              },
               color: '#fff',
               formatter: (value, ctx) => {
                 let sum = 0;
