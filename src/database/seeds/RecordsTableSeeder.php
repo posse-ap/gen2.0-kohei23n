@@ -3,7 +3,6 @@
 use Illuminate\Database\Seeder;
 // use App\Models\Record;
 use App\Record;
-// use File;
 
 class RecordsTableSeeder extends Seeder
 {
@@ -14,118 +13,137 @@ class RecordsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('records')->insert(
-            [
-                ['study_date' => '2022-6-21',
-                'study_time' => 2,
-                'language_id' => 1,
-                'content_id' => 1,
-                ],
-                ['study_date' => '2022-6-21',
-                'study_time' => 3,
-                'language_id' => 2,
-                'content_id' => 1,
-                ],
-                ['study_date' => '2022-6-21',
-                'study_time' => 4,
-                'language_id' => 3,
-                'content_id' => 1,
-                ],
-                ['study_date' => '2022-6-21',
-                'study_time' => 2,
-                'language_id' => 4,
-                'content_id' => 1,
-                ],
-                ['study_date' => '2022-6-21',
-                'study_time' => 0,
-                'language_id' => 1,
-                'content_id' => 2,
-                ],
-                ['study_date' => '2022-6-22',
-                'study_time' => 4,
-                'language_id' => 2,
-                'content_id' => 2,
-                ],
-                ['study_date' => '2022-6-22',
-                'study_time' => 2,
-                'language_id' => 3,
-                'content_id' => 2,
-                ],
-                ['study_date' => '2022-6-22',
-                'study_time' => 3,
-                'language_id' => 4,
-                'content_id' => 2,
-                ],
-                ['study_date' => '2022-6-22',
-                'study_time' => 3,
-                'language_id' => 1,
-                'content_id' => 3,
-                ],
-                ['study_date' => '2022-6-23',
-                'study_time' => 3,
-                'language_id' => 2,
-                'content_id' => 3,
-                ],
-                ['study_date' => '2022-6-23',
-                'study_time' => 2,
-                'language_id' => 3,
-                'content_id' => 3,
-                ],
-                ['study_date' => '2022-6-23',
-                'study_time' => 3,
-                'language_id' => 4,
-                'content_id' => 3,
-                ],
-                ['study_date' => '2022-6-23',
-                'study_time' => 4,
-                'language_id' => 1,
-                'content_id' => 1,
-                ],
-                ['study_date' => '2022-6-23',
-                'study_time' => 3,
-                'language_id' => 2,
-                'content_id' => 1,
-                ],
-                ['study_date' => '2022-6-23',
-                'study_time' => 2,
-                'language_id' => 3,
-                'content_id' => 2,
-                ],
-                ['study_date' => '2022-6-23',
-                'study_time' => 3,
-                'language_id' => 4,
-                'content_id' => 2,
-                ],
-                ['study_date' => '2022-6-24',
-                'study_time' => 4,
-                'language_id' => 1,
-                'content_id' => 3,
-                ],
-                ['study_date' => '2022-6-24',
-                'study_time' => 3,
-                'language_id' => 2,
-                'content_id' => 3,
-                ],
-                ['study_date' => '2022-6-24',
-                'study_time' => 2,
-                'language_id' => 3,
-                'content_id' => 3,
-                ],
-            ]);
+        Record::create([
+            'study_date' => '2022-7-1',
+            'study_time' => 2,
+            'language_id' => 1,
+            'content_id' => 1,
+        ]);
+
+        Record::create([
+            'study_date' => '2022-7-2',
+            'study_time' => 3,
+            'language_id' => 2,
+            'content_id' => 1,
+        ]);
+
+        Record::create([
+            'study_date' => '2022-7-3',
+            'study_time' => 4,
+            'language_id' => 3,
+            'content_id' => 1,
+        ]);
+
+        Record::create([
+            'study_date' => '2022-7-4',
+            'study_time' => 2,
+            'language_id' => 4,
+            'content_id' => 1,
+        ]);
+
+        Record::create([
+            'study_date' => '2022-7-5',
+            'study_time' => 0,
+            'language_id' => 1,
+            'content_id' => 2
+        ]);
+
+        Record::create([
+            'study_date' => '2022-7-6',
+            'study_time' => 4,
+            'language_id' => 2,
+            'content_id' => 2,
+        ]);
+
+        Record::create([
+            'study_date' => '2022-7-7',
+            'study_time' => 2,
+            'language_id' => 3,
+            'content_id' => 2,
+        ]);
+
+        Record::create([
+            'study_date' => '2022-7-8',
+            'study_time' => 3,
+            'language_id' => 4,
+            'content_id' => 2,
+        ]);
+
+        Record::create([
+            'study_date' => '2022-7-9',
+            'study_time' => 3,
+            'language_id' => 1,
+            'content_id' => 3,
+        ]);
+
+        Record::create([
+            'study_date' => '2022-7-10',
+            'study_time' => 3,
+            'language_id' => 2,
+            'content_id' => 3,
+        ]);
+
+        Record::create([
+            'study_date' => '2022-7-11',
+            'study_time' => 2,
+            'language_id' => 3,
+            'content_id' => 3,
+        ]);
+
+        Record::create([
+            'study_date' => '2022-7-12',
+            'study_time' => 3,
+            'language_id' => 4,
+            'content_id' => 3,
+        ]);
+
+        Record::create([
+            'study_date' => '2022-7-13',
+            'study_time' => 4,
+            'language_id' => 1,
+            'content_id' => 1,
+        ]);
+
+        Record::create([
+            'study_date' => '2022-7-14',
+            'study_time' => 3,
+            'language_id' => 2,
+            'content_id' => 1,
+        ]);
+        
+        Record::create([
+            'study_date' => '2022-7-15',
+            'study_time' => 2,
+            'language_id' => 3,
+            'content_id' => 2,
+        ]);
+        
+        Record::create([
+            'study_date' => '2022-7-16',
+            'study_time' => 3,
+            'language_id' => 4,
+            'content_id' => 2,
+        ]);
+        
+        Record::create([
+            'study_date' => '2022-7-17',
+            'study_time' => 4,
+            'language_id' => 1,
+            'content_id' => 3,
+        ]);
+        
+        Record::create([
+            'study_date' => '2022-7-18',
+            'study_time' => 3,
+            'language_id' => 2,
+            'content_id' => 3,
+        ]);
+
+        Record::create([
+            'study_date' => '2022-7-19',
+            'study_time' => 2,
+            'language_id' => 3,
+            'content_id' => 3,
+        ]);
     }
-
-    // public function run()
-    // {
-    //     $json = File::get("database/data/records.json");
-    //     $countries = json_decode($json);
-
-    //     foreach ($countries as $value) {
-    //         Record::create([
-    //             "study_date" => $value->study_date,
-    //             "study_time" => $value->study_time,
-    //             "language_id" => $value->language_id,
-    //             "content_id" => $value->content_id
-    //         ]);
-    //     }
-    // }
 }

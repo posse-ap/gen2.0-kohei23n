@@ -20,24 +20,37 @@ class AppController extends Controller
         // //合計学習時間
         $total = Record::sum('study_time');
 
-        // 言語円グラフ（グラフで使うデータ、ラベル、色の取得）
-        // $langs = Record::leftJoin('languages', 'records.language_id', '=', 'languages.id')
-        //                 ->select('languages.language', DB::raw("SUM(records.study_time) as sum"), 'languages.colour')
-        //                 ->groupBy('languages.language', 'languages.colour')
-        //                 ->get();
-        $langs = Language::all();
+        // 言語円グラフ（グラフで使うデータ）
+        $langs = Record::leftJoin('languages', 'records.language_id', '=', 'languages.id')
+                        ->select('languages.language', DB::raw("SUM(records.study_time) as sum"), 'languages.colour')
+                        ->groupBy('languages.language', 'languages.colour')
+                        ->pluck("sum");
+        // 言語円グラフ（ラベル）        
+        $langs_labels = Language::pluck("language");
+        // 言語円グラフ（色）        
+        $langs_colours = Language::pluck("colour");
+
+        // $langs = Language::all();
 
         // コンテンツ円グラフ（グラフで使うデータ、ラベル、色の取得）
-        $contents = Content::all();
+        $contents = Record::leftJoin('contents', 'records.content_id', '=', 'contents.id')
+                            ->select('contents.content', DB::raw("SUM(records.study_time) as sum"), 'contents.colour')
+                            ->groupBy('contents.content', 'contents.colour')
+                            ->pluck("sum");
+        // 言語円グラフ（ラベル）        
+        $contents_labels = Content::pluck("content");
+        // 言語円グラフ（色）        
+        $contents_colours = Content::pluck("colour");
 
         // 棒グラフ
         $bar = Record::select(DB::raw("SUM(study_time) as sum"))
                         ->whereYear('study_date', date('Y'))->whereMonth('study_date', date('m'))
                         ->groupBy('study_date')
-                        ->get();
+                        ->pluck("sum");
+
+        $record = Record::all();
         
-        return view('webapp', compact('today', 'month', 'total', 'langs', 'contents', 'bar'));
-        // return $bar;
+        return view('webapp', compact('today', 'month', 'total', 'langs', 'langs_labels', 'langs_colours', 'contents', 'contents_labels', 'contents_colours', 'bar', 'record'));
     }
     
 }
