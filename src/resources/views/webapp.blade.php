@@ -352,7 +352,7 @@
 
 
   <script>
-    // js にコントローラで定義したブレード関数を渡している
+    // js にコントローラで定義したブレード変数を渡している
     const bar_data = @json($bar);
     const langs_data = @json($langs);
     const langs_labels = @json($langs_labels);

@@ -14,133 +14,133 @@ class RecordsTableSeeder extends Seeder
     public function run()
     {
         Record::create([
-            'study_date' => '2022-7-1',
+            'study_date' => '2022-9-1',
             'study_time' => 2,
             'language_id' => 1,
             'content_id' => 1,
         ]);
 
         Record::create([
-            'study_date' => '2022-7-2',
+            'study_date' => '2022-9-2',
             'study_time' => 3,
             'language_id' => 2,
             'content_id' => 1,
         ]);
 
         Record::create([
-            'study_date' => '2022-7-3',
+            'study_date' => '2022-9-3',
             'study_time' => 4,
             'language_id' => 3,
             'content_id' => 1,
         ]);
 
         Record::create([
-            'study_date' => '2022-7-4',
+            'study_date' => '2022-9-4',
             'study_time' => 2,
             'language_id' => 4,
             'content_id' => 1,
         ]);
 
         Record::create([
-            'study_date' => '2022-7-5',
+            'study_date' => '2022-9-5',
             'study_time' => 0,
             'language_id' => 1,
             'content_id' => 2
         ]);
 
         Record::create([
-            'study_date' => '2022-7-6',
+            'study_date' => '2022-9-6',
             'study_time' => 4,
             'language_id' => 2,
             'content_id' => 2,
         ]);
 
         Record::create([
-            'study_date' => '2022-7-7',
+            'study_date' => '2022-9-9',
             'study_time' => 2,
             'language_id' => 3,
             'content_id' => 2,
         ]);
 
         Record::create([
-            'study_date' => '2022-7-8',
+            'study_date' => '2022-9-8',
             'study_time' => 3,
             'language_id' => 4,
             'content_id' => 2,
         ]);
 
         Record::create([
-            'study_date' => '2022-7-9',
+            'study_date' => '2022-9-9',
             'study_time' => 3,
             'language_id' => 1,
             'content_id' => 3,
         ]);
 
         Record::create([
-            'study_date' => '2022-7-10',
+            'study_date' => '2022-9-10',
             'study_time' => 3,
             'language_id' => 2,
             'content_id' => 3,
         ]);
 
         Record::create([
-            'study_date' => '2022-7-11',
+            'study_date' => '2022-9-11',
             'study_time' => 2,
             'language_id' => 3,
             'content_id' => 3,
         ]);
 
         Record::create([
-            'study_date' => '2022-7-12',
+            'study_date' => '2022-9-12',
             'study_time' => 3,
             'language_id' => 4,
             'content_id' => 3,
         ]);
 
         Record::create([
-            'study_date' => '2022-7-13',
+            'study_date' => '2022-9-13',
             'study_time' => 4,
             'language_id' => 1,
             'content_id' => 1,
         ]);
 
         Record::create([
-            'study_date' => '2022-7-14',
+            'study_date' => '2022-9-14',
             'study_time' => 3,
             'language_id' => 2,
             'content_id' => 1,
         ]);
         
         Record::create([
-            'study_date' => '2022-7-15',
+            'study_date' => '2022-9-15',
             'study_time' => 2,
             'language_id' => 3,
             'content_id' => 2,
         ]);
         
         Record::create([
-            'study_date' => '2022-7-16',
+            'study_date' => '2022-9-16',
             'study_time' => 3,
             'language_id' => 4,
             'content_id' => 2,
         ]);
         
         Record::create([
-            'study_date' => '2022-7-17',
+            'study_date' => '2022-9-19',
             'study_time' => 4,
             'language_id' => 1,
             'content_id' => 3,
         ]);
         
         Record::create([
-            'study_date' => '2022-7-18',
+            'study_date' => '2022-9-18',
             'study_time' => 3,
             'language_id' => 2,
             'content_id' => 3,
         ]);
 
         Record::create([
-            'study_date' => '2022-7-19',
+            'study_date' => '2022-9-19',
             'study_time' => 2,
             'language_id' => 3,
             'content_id' => 3,
