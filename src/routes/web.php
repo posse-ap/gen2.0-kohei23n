@@ -18,5 +18,9 @@ Route::get('/', function () {
 Route::get('/top', 'AppController@index');
       // ->middleware('auth');
 Auth::routes();
+Route::get('/logout', 'Auth\LoginController@logout');
+
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
