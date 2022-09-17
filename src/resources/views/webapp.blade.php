@@ -1,3 +1,6 @@
+{{-- @extends('layouts.app') --}}
+
+
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -15,7 +18,7 @@
 </head>
 <body>
   <!-- HEADER -->
-  <header class="header">
+  {{-- <header class="header">
     <div class="header_left">
       <div class="img_cont"></div>
       <h2 class="top_text">4th Week</h2>
@@ -23,7 +26,7 @@
     <div class="header_right">
       <a href="#modal" id="modalbtn">記録・投稿</a>
     </div>
-  </header>
+  </header> --}}
 
   <!-- MAIN -->
   <main class="main">
