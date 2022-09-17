@@ -77,7 +77,7 @@ for (let i = 0; i <= 7; i++) {
 
 // DATE 
 
-$('#datepicker').datepicker();
+// $('#datepicker').datepicker();
 
 // LOADING (PC)
 

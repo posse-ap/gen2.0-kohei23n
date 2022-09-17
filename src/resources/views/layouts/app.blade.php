@@ -13,7 +13,7 @@
     <!-- Scripts -->
     @yield('header_scripts')
     <script src="{{ asset('js/app.js') }}"></script>
-    
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -31,12 +31,15 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
                     <!-- Left Side Of Navbar -->
-                    <div class="navbar-nav mr-auto">
+                    <div class="navbar-nav">
                         <div class="img_cont"></div>
                     </div>
 
+
+                    <a href="#modal" class="modal_button" id="modalbtn">記録・投稿</a>
+
                     <!-- Right Side Of Navbar -->
-                    <div class="navbar-nav ml-auto">
+                    <div class="navbar-nav">
                         <!-- Authentication Links -->
                         @guest
                             <li class="nav-item">
@@ -57,7 +60,7 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefadivt();
-                                                     document.getElementById('logout-form').submit();">
+                                                    document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}
                                     </a>
 

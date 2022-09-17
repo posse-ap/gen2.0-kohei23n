@@ -14,10 +14,10 @@ class AppController extends Controller
         // 今日の学習時間
         $today = Record::whereDate('study_date', date('Y-m-d'))->sum('study_time');
 
-        // //今月の学習時間
+        // 今月の学習時間
         $month = Record::whereYear('study_date', date('Y'))->whereMonth('study_date', date('m'))->sum('study_time');
 
-        // //合計学習時間
+        // 合計学習時間
         $total = Record::sum('study_time');
 
         // 言語円グラフ（グラフで使うデータ）
@@ -30,7 +30,6 @@ class AppController extends Controller
         // 言語円グラフ（色）        
         $langs_colours = Language::pluck("colour");
 
-        // $langs = Language::all();
 
         // コンテンツ円グラフ（グラフで使うデータ、ラベル、色の取得）
         $contents = Record::leftJoin('contents', 'records.content_id', '=', 'contents.id')

@@ -10,18 +10,6 @@
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
 @endsection
 
-
-<!-- HEADER -->
-{{-- <header class="header">
-    <div class="header_left">
-      <div class="img_cont"></div>
-      <h2 class="top_text">4th Week</h2>
-    </div>
-    <div class="header_right">
-      <a href="#modal" id="modalbtn">記録・投稿</a>
-    </div>
-  </header> --}}
-
 @section('content')
     <!-- MAIN -->
     <div class="main_section" id="main_section">
