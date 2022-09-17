@@ -5,7 +5,7 @@ body {
 /* HEADER */
 
 .container {
-  height: 70px;
+  height: 10vh;
   align-items: center;
   justify-content: center;
 }
@@ -16,11 +16,11 @@ body {
 
 .navbar-nav {
   height: 100%;
-  padding: 10px 8px !important;
+  padding: 15px 8px !important;
 }
 
 .navbar-nav a {
-  font-size: 20px !important;
+  font-size: 15px !important;
   display: flex;
 }
 
