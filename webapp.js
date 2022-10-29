@@ -178,8 +178,6 @@ gradient.addColorStop(1, 'rgba(17,115,189, 1)');
 
 
 const myColumnChart = new Chart(column, {
-    // label: 'none',
-    
     type: 'bar',
     data: {
         labels: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
@@ -189,7 +187,6 @@ const myColumnChart = new Chart(column, {
             borderRadius: 50,
             borderSkipped: false,
         }],
-        // barPercentage: 0.3
     },
     options: {
         responsive: true,
@@ -201,8 +198,6 @@ const myColumnChart = new Chart(column, {
               drawBorder: false,
             },
             ticks: {
-              // min: 2,
-              // maxTicksLimit: 15,
               color: '#bdd1e1',
               autoSkip: false,
               padding: 0,
@@ -212,7 +207,6 @@ const myColumnChart = new Chart(column, {
               },
               maxRotation: 0
             },
-            // barPercentage: 0.3
           },
           y: {
             grid: {
@@ -309,7 +303,6 @@ const mySecondDonutChart = new Chart(donut2, {
           }
         },
     },
-    
 });
 
 // TWITTER
