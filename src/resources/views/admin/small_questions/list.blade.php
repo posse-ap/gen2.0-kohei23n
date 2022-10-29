@@ -20,6 +20,7 @@
             </div>
               <div class="list_actions--big">
                   <a href="/admin/choices/{{ $question->id }}">設問の選択肢を編集</a>
+                  <a href="/admin/small_questions/edit/{{ $question->id }}">設問を編集</a>
                   <a href="/admin/small_questions/delete/{{ $question->id }}">設問を削除</a>
               </div>
           </div>

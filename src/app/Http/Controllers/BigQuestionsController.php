@@ -20,12 +20,19 @@ class BigQuestionsController extends Controller
         if (!empty($request->input('list-ids')))
         {
             $list = $request->input('list-ids');
-
+            // "2,1"
+            
             $lists = explode(',', $list);
+            // array:2 [▼
+            // 0 => "2"
+            // 1 => "1"
+            // ]
 
             foreach($lists as $index => $id){
                 $big_question = BigQuestion::where('id', $id)->first();
                 $big_question->sort = $index + 1;
+                // $index = 1, 2, 3 
+                // 1, 2 
                 $big_question->save();
             }
         } 

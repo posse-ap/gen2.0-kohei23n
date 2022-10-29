@@ -29,9 +29,6 @@ class QuestionsController extends Controller
 
         $questions = Question::where('big_question_id', $id)->where('hide', 0)->orderBy('sort', 'asc')->get();
 
-
-
-
         return view('admin.small_questions.list', ['big_question' => $big_question, 'questions' => $questions]);
     }
 
@@ -60,6 +57,31 @@ class QuestionsController extends Controller
         $question->sort = Question::max('id') + 1;
         $question->save();
         return redirect('/admin/small_questions/'.$big_question->id);
+    }
+
+    public function edit_question($id)
+    {
+        $question = Question::find($id);
+        return view('admin.small_questions.edit', ['question' => $question]);
+    }
+
+    public function update_question(Request $request, $id)
+    {
+        $question = Question::find($id);
+
+        if ($file = $request->image) {
+            $fileName = time() . $file->getClientOriginalName();
+            $target_path = public_path('images/');
+            $file->move($target_path, $fileName);
+        } else {
+            $fileName = "";
+        }
+
+        $question->image = $fileName;
+        $question->hide = 0;
+        $question->sort = Question::max('id') + 1;
+        $question->save();
+        return redirect('/admin/small_questions/'.$question->big_question_id);
     }
 
     public function delete_question($id)

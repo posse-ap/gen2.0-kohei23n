@@ -53,6 +53,9 @@ Route::get('/admin/small_questions/{id}', 'QuestionsController@manage_questions'
 Route::get('/admin/small_questions/{id}/add', 'QuestionsController@add_question');
 Route::post('/admin/small_questions/{id}/add', 'QuestionsController@create_question');
 
+Route::get('/admin/small_questions/edit/{id}', 'QuestionsController@edit_question');
+Route::post('/admin/small_questions/edit/{id}', 'QuestionsController@update_question');
+
 Route::get('/admin/small_questions/delete/{id}', 'QuestionsController@delete_question');
 Route::post('/admin/small_questions/delete/{id}', 'QuestionsController@remove_question');
 
