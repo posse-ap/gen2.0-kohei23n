@@ -30,9 +30,6 @@ $(function () {
   });
 });
 
-// CHANGE COLOR OF CHECKBOXES (PC)
-
-
 //動的なidをつける
 let contentname = "content"
 let firstcirclename = "firstcircle"
@@ -308,8 +305,7 @@ const myColumnChart = new Chart(column, {
                 // Hide the label of every 2nd dataset
                 return val % 2 === 1 ? this.getLabelForValue(val) : '';
               },
-              maxRotation: 0,
-              minRotation: 0
+              maxRotation: 0
             },
             // barPercentage: 0.3
           },
@@ -392,7 +388,7 @@ const myFirstDonutChart = new Chart(donut1, {
     data: {
         labels: ['HTML', 'CSS', 'SQL', 'SHELL', 'Javascript', 'その他', 'PHP', 'Laravel'],
         datasets: [{
-            data: [30, 20, 20, 20, 10, 10, 5, 5],
+            data: [30, 20, 10, 10, 10, 10, 5, 5],
             backgroundColor: [
               '#0445ec',
               '#0f70bd',
