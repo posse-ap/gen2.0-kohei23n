@@ -303,13 +303,10 @@ const myColumnChart = new Chart(column, {
               // maxTicksLimit: 15,
               color: '#bdd1e1',
               autoSkip: false,
-              min: 1,
-              max: 30,
               padding: 0,
-              // stepSize: 2,
-              callback: function(val, index) {
+              callback: function(val) {
                 // Hide the label of every 2nd dataset
-                return index % 2 === 1 ? this.getLabelForValue(val) : '';
+                return val % 2 === 1 ? this.getLabelForValue(val) : '';
               },
               maxRotation: 0,
               minRotation: 0
@@ -496,7 +493,7 @@ const mySecondDonutChart = new Chart(donut2, {
 function GetTweet(str,code) {
     var text_all = document.getElementById("tweetBox");
     var input_data = text_all.value.replace(/\r?\n/g, '%0D%0A');
-    TWEET.innerHTML =　'<a class="twitter_button" href="https://twitter.com/intent/tweet?text=' + input_data + '" target="_blank">Twitterにシェアする</a>'
+    TWEET.innerHTML = '<a class="twitter_button" href="https://twitter.com/intent/tweet?text=' + input_data + '" target="_blank">Twitterにシェアする</a>'
 }
 
 let seperate = document.getElementById('Hello');
