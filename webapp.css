@@ -325,7 +325,7 @@ body {
 .modal_inner {
   z-index: 1;
   position: absolute;
-  height: 69vh;
+  height: 72vh;
   width: 60vw;
   top: 10vh;
   left: 50%;
@@ -338,7 +338,6 @@ body {
 
 .modal_wrapper {
   display: flex;
-  /* display: none; */
 }
 
 .modal_title {
@@ -414,10 +413,6 @@ body {
   margin-left: 0.5vw;
 }
 
-/* .mobilecircle_clicked {
-  background-color: #0f70bd;
-} */
-
 .label {
   margin: 0 0.3vw;
   font-size: 2.6vh;
@@ -457,6 +452,7 @@ body {
 .modal_twitter_share {
   display: flex;
   margin-top: 2%;
+  align-items: center;
 }
 
 .modal_twitter_share a {
@@ -528,7 +524,7 @@ body {
   text-align: center;
   position: absolute;
   left: 50%;
-  bottom: 3vh;
+  bottom: 2vh;
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
 }

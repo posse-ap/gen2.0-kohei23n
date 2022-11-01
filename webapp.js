@@ -313,6 +313,4 @@ function GetTweet(str,code) {
     TWEET.innerHTML = '<a class="twitter_button" href="https://twitter.com/intent/tweet?text=' + input_data + '" target="_blank">Twitterにシェアする</a>'
 }
 
-let seperate = document.getElementById('Hello');
-
 
