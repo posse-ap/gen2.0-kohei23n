@@ -84,7 +84,7 @@ class QuestionsController extends Controller
         return redirect('/admin/small_questions/'.$question->big_question_id);
     }
 
-    public function delete_question($id)
+    public function delete_question($id) 
     {
         $question = Question::find($id);
         return view('admin.small_questions.delete', ['question' => $question]);
