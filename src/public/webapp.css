@@ -395,6 +395,7 @@ body {
 .option_cont {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   padding-inline-start: 0;
 }
 
@@ -457,8 +458,8 @@ body {
   -webkit-transform: rotate(225deg);
   transform: rotate(225deg);
   position: absolute;
-  top: 50%;
-  left: 0;
+  top: 15px;
+  left: -5px;
   margin-top: -8px;
   margin-left: 16px;
 }
@@ -996,8 +997,8 @@ body {
     -webkit-transform: rotate(225deg);
     transform: rotate(225deg);
     position: absolute;
-    top: 50%;
-    left: 0;
+    top: 22px;
+    left: 1px;
     margin-top: -7px;
     margin-left: 8px;
   }

@@ -114,75 +114,99 @@
     <!-- MODAL -->
     <div class="modal_bg">
         <div class="modal_inner" id="modal">
+            <form action="{{ route('add_record') }}" method="post">
+            @csrf
             <div class="modal_wrapper">
                 <div class="modal_left" id="modal_left">
                     <div class="modal_day">
                         <h1 class="modal_title">学習日</h1>
-                        <input type="text" class="textbox_small" id="datepicker">
+                        <input name="study_date" type="text" class="textbox_small" id="datepicker">
                     </div>
                     <div class="modal_content">
                         <h1 class="modal_title">学習コンテンツ（複数選択可）</h1>
                         <div class="option_cont">
                             <div class="option content_op">
-                                <div class="arrow_check"></div>
-                                <div class="circle_gray circle_content"></div>
+                                <input name="content_value[]" value="1" type="checkbox" style="display: none">
+                                <label for="content_value" class="circle_gray circle_content">
+                                    <div class="arrow_check"></div>
+                                </label>
                                 <p class="label">N予備校</p>
-                            </div class="option">
+                            </div>
                             <div class="option content_op">
-                                <div class="arrow_check"></div>
-                                <div class="circle_gray circle_content"></div>
+                                <input name="content_value[]" value="2" type="checkbox" style="display: none">
+                                <label for="content_value" class="circle_gray circle_content">
+                                    <div class="arrow_check"></div>
+                                </label>
                                 <p class="label">ドットインストール</p>
-                            </div class="option">
+                            </div>
                             <div class="option content_op">
-                                <div class="arrow_check"></div>
-                                <div class="circle_gray circle_content"></div>
+                                <input name="content_value[]" value="3" type="checkbox" style="display: none">
+                                <label for="content_value" class="circle_gray circle_content">
+                                    <div class="arrow_check"></div>
+                                </label>
                                 <p class="label">POSSE課題</p>
-                            </div class="option">
+                            </div>
                         </div>
                     </div>
                     <div class="modal_lang">
                         <h1 class="modal_title">学習言語（複数選択可）</h1>
                         <div class="option_cont">
                             <div class="option lang_op">
-                                <div class="arrow_check"></div>
-                                <div class="circle_gray circle_lang"></div>
+                                <input name="lang_value[]" value="1" type="checkbox" style="display: none">
+                                <label for="lang_value" class="circle_gray circle_lang">
+                                    <div class="arrow_check"></div>
+                                </label>
                                 <p class="label">HTML</p>
                             </div>
                             <div class="option lang_op">
-                                <div class="arrow_check"></div>
-                                <div class="circle_gray circle_lang"></div>
+                                <input name="lang_value[]" value="2" type="checkbox" style="display: none">
+                                <label for="lang_value" class="circle_gray circle_lang">
+                                    <div class="arrow_check"></div>
+                                </label>
                                 <p class="label">CSS</p>
-                            </div class="option">
+                            </div>
                             <div class="option lang_op">
-                                <div class="arrow_check"></div>
-                                <div class="circle_gray circle_lang"></div>
+                                <input name="lang_value[]" value="3" type="checkbox" style="display: none">
+                                <label for="lang_value" class="circle_gray circle_lang">
+                                    <div class="arrow_check"></div>
+                                </label>
                                 <p class="label">Javascript</p>
-                            </div class="option">
+                            </div>
                             <div class="option lang_op">
-                                <div class="arrow_check"></div>
-                                <div class="circle_gray circle_lang"></div>
+                                <input name="lang_value[]" value="4" type="checkbox" style="display: none">
+                                <label for="lang_value" class="circle_gray circle_lang">
+                                    <div class="arrow_check"></div>
+                                </label>
                                 <p class="label">PHP</p>
-                            </div class="option">
+                            </div>
                             <div class="option lang_op">
-                                <div class="arrow_check"></div>
-                                <div class="circle_gray circle_lang"></div>
+                                <input name="lang_value[]" value="5" type="checkbox" style="display: none">
+                                <label for="lang_value" class="circle_gray circle_lang">
+                                    <div class="arrow_check"></div>
+                                </label>
                                 <p class="label">Laravel</p>
-                            </div class="option">
+                            </div>
                             <div class="option lang_op">
-                                <div class="arrow_check"></div>
-                                <div class="circle_gray circle_lang"></div>
+                                <input name="lang_value[]" value="6" type="checkbox" style="display: none">
+                                <label for="lang_value" class="circle_gray circle_lang">
+                                    <div class="arrow_check"></div>
+                                </label>
                                 <p class="label">SQL</p>
-                            </div class="option">
+                            </div>
                             <div class="option lang_op">
-                                <div class="arrow_check"></div>
-                                <div class="circle_gray circle_lang"></div>
+                                <input name="lang_value[]" value="7" type="checkbox" style="display: none">
+                                <label for="lang_value" class="circle_gray circle_lang">
+                                    <div class="arrow_check"></div>
+                                </label>
                                 <p class="label">SHELL</p>
-                            </div class="option">
+                            </div>
                             <div class="option lang_op">
-                                <div class="arrow_check"></div>
-                                <div class="circle_gray circle_lang"></div>
+                                <input name="lang_value[]" value="8" type="checkbox" style="display: none">
+                                <label for="lang_value" class="circle_gray circle_lang">
+                                    <div class="arrow_check"></div>
+                                </label>
                                 <p class="label">情報システム基礎知識（その他）</p>
-                            </div class="option">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -190,7 +214,7 @@
                 <div class="modal_right" id="modal_right">
                     <div class="modal_time">
                         <h1 class="modal_title">学習時間</h1>
-                        <input type="number" class="textbox_small">
+                        <input name="study_time" type="number" class="textbox_small">
                     </div>
                     <div class="modal_twitter">
                         <h1 class="modal_title">Twitter用コメント</h1>
@@ -213,8 +237,10 @@
             <!-- MODAL BOTTOM -->
             <div class="modal_bottom" id="modal_bottom">
                 <!-- <a href="#modal" id="bottom_btn">記録・投稿</a> -->
-                <button id="bottom_btn">記録・投稿</button>
+                <button type="submit" id="bottom_btn">記録・投稿</button>
             </div>
+            </form>
+            
             <!-- X BUTTON -->
             <div class="x" id="close"></div>
             <!-- LOADER -->

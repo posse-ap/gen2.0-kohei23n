@@ -77,7 +77,7 @@ for (let i = 0; i <= 7; i++) {
 
 // DATE 
 
-// $('#datepicker').datepicker();
+$('#datepicker').datepicker();
 
 // LOADING (PC)
 
@@ -380,6 +380,19 @@ $(function(){
     }
   });
 });
+
+
+// // クイズの内容を埋め込みたい場所の指定
+// let element = document.getElementById('box');
+
+// // 埋め込む内容を変数に入れる
+// let text = '<p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p>'
+
+// // 実際に埋め込む処理
+// element.insertAdjacentHTML('beforebegin', '<p>Paragraph</p>');
+
+
+
 
 
 
