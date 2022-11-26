@@ -169,27 +169,6 @@ sup {
   top: -0.5em;
 }
 
-a {
-  color: #3490dc;
-  text-decoration: none;
-  background-color: transparent;
-}
-
-a:hover {
-  color: #1d68a7;
-  text-decoration: underline;
-}
-
-a:not([href]):not([class]) {
-  color: inherit;
-  text-decoration: none;
-}
-
-a:not([href]):not([class]):hover {
-  color: inherit;
-  text-decoration: none;
-}
-
 pre,
 code,
 kbd,
@@ -238,7 +217,11 @@ th {
 
 label {
   display: inline-block;
+<<<<<<< HEAD
   margin-bottom: 0.5rem;
+=======
+  /* margin-bottom: 0.5rem; */
+>>>>>>> 83d4ba49c7e907fb23706b37793d00372a8a3725
 }
 
 button {
@@ -306,10 +289,17 @@ input[type=checkbox] {
   padding: 0;
 }
 
+<<<<<<< HEAD
 textarea {
   overflow: auto;
   resize: vertical;
 }
+=======
+/* textarea {
+  overflow: auto;
+  resize: vertical;
+} */
+>>>>>>> 83d4ba49c7e907fb23706b37793d00372a8a3725
 
 fieldset {
   min-width: 0;
@@ -2252,9 +2242,15 @@ select.form-control[multiple] {
   height: auto;
 }
 
+<<<<<<< HEAD
 textarea.form-control {
   height: auto;
 }
+=======
+/* textarea.form-control {
+  height: auto;
+} */
+>>>>>>> 83d4ba49c7e907fb23706b37793d00372a8a3725
 
 .form-group {
   margin-bottom: 1rem;
@@ -2371,11 +2367,19 @@ select.form-control.is-valid {
   background-position: right 1.5rem center;
 }
 
+<<<<<<< HEAD
 .was-validated textarea.form-control:valid,
 textarea.form-control.is-valid {
   padding-right: calc(1.6em + 0.75rem);
   background-position: top calc(0.4em + 0.1875rem) right calc(0.4em + 0.1875rem);
 }
+=======
+/* .was-validated textarea.form-control:valid,
+textarea.form-control.is-valid {
+  padding-right: calc(1.6em + 0.75rem);
+  background-position: top calc(0.4em + 0.1875rem) right calc(0.4em + 0.1875rem);
+} */
+>>>>>>> 83d4ba49c7e907fb23706b37793d00372a8a3725
 
 .was-validated .custom-select:valid,
 .custom-select.is-valid {
@@ -2497,11 +2501,19 @@ select.form-control.is-invalid {
   background-position: right 1.5rem center;
 }
 
+<<<<<<< HEAD
 .was-validated textarea.form-control:invalid,
 textarea.form-control.is-invalid {
   padding-right: calc(1.6em + 0.75rem);
   background-position: top calc(0.4em + 0.1875rem) right calc(0.4em + 0.1875rem);
 }
+=======
+/* .was-validated textarea.form-control:invalid,
+textarea.form-control.is-invalid {
+  padding-right: calc(1.6em + 0.75rem);
+  background-position: top calc(0.4em + 0.1875rem) right calc(0.4em + 0.1875rem);
+} */
+>>>>>>> 83d4ba49c7e907fb23706b37793d00372a8a3725
 
 .was-validated .custom-select:invalid,
 .custom-select.is-invalid {
@@ -3388,6 +3400,13 @@ input[type=button].btn-block {
   position: relative;
 }
 
+<<<<<<< HEAD
+=======
+.dropdown {
+  width: 100px;
+}
+
+>>>>>>> 83d4ba49c7e907fb23706b37793d00372a8a3725
 .dropdown-toggle {
   white-space: nowrap;
 }
@@ -3900,10 +3919,17 @@ input[type=button].btn-block {
   margin-top: 0;
 }
 
+<<<<<<< HEAD
 .input-group-lg > .form-control:not(textarea),
 .input-group-lg > .custom-select {
   height: calc(1.5em + 1rem + 2px);
 }
+=======
+/* .input-group-lg > .form-control:not(textarea),
+.input-group-lg > .custom-select {
+  height: calc(1.5em + 1rem + 2px);
+} */
+>>>>>>> 83d4ba49c7e907fb23706b37793d00372a8a3725
 
 .input-group-lg > .form-control,
 .input-group-lg > .custom-select,
@@ -3917,10 +3943,17 @@ input[type=button].btn-block {
   border-radius: 0.3rem;
 }
 
+<<<<<<< HEAD
 .input-group-sm > .form-control:not(textarea),
 .input-group-sm > .custom-select {
   height: calc(1.5em + 0.5rem + 2px);
 }
+=======
+/* .input-group-sm > .form-control:not(textarea),
+.input-group-sm > .custom-select {
+  height: calc(1.5em + 0.5rem + 2px);
+} */
+>>>>>>> 83d4ba49c7e907fb23706b37793d00372a8a3725
 
 .input-group-sm > .form-control,
 .input-group-sm > .custom-select,
@@ -4585,6 +4618,10 @@ input[type=button].btn-block {
   flex-basis: 100%;
   flex-grow: 1;
   align-items: center;
+<<<<<<< HEAD
+=======
+  justify-content: space-between;
+>>>>>>> 83d4ba49c7e907fb23706b37793d00372a8a3725
 }
 
 .navbar-toggler {
@@ -8676,20 +8713,26 @@ button.bg-dark:focus {
   padding: 1.5rem !important;
 }
 
+<<<<<<< HEAD
 .pt-4,
 .py-4 {
   padding-top: 1.5rem !important;
 }
 
+=======
+>>>>>>> 83d4ba49c7e907fb23706b37793d00372a8a3725
 .pr-4,
 .px-4 {
   padding-right: 1.5rem !important;
 }
 
+<<<<<<< HEAD
 .pb-4,
 .py-4 {
   padding-bottom: 1.5rem !important;
 }
+=======
+>>>>>>> 83d4ba49c7e907fb23706b37793d00372a8a3725
 
 .pl-4,
 .px-4 {

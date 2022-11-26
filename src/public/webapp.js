@@ -382,6 +382,22 @@ $(function(){
 });
 
 
+<<<<<<< HEAD
+=======
+// // クイズの内容を埋め込みたい場所の指定
+// let element = document.getElementById('box');
+
+// // 埋め込む内容を変数に入れる
+// let text = '<p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p><p>aaaaaa</p>'
+
+// // 実際に埋め込む処理
+// element.insertAdjacentHTML('beforebegin', '<p>Paragraph</p>');
+
+
+
+
+
+>>>>>>> 83d4ba49c7e907fb23706b37793d00372a8a3725
 
 
 

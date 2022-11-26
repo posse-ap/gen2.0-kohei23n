@@ -6,13 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Record extends Model
 {
-    public function languages()
-    {
-        return $this->hasMany('App\Language');
-    }
+    protected $fillable = [
+        'study_date', 'study_time', 'language_id', 'content_id',
+    ];
 
-    public function content()
-    {
-        return $this->hasMany('App\Content');
-    }
 }
