@@ -217,11 +217,7 @@ th {
 
 label {
   display: inline-block;
-<<<<<<< HEAD
-  margin-bottom: 0.5rem;
-=======
   /* margin-bottom: 0.5rem; */
->>>>>>> 83d4ba49c7e907fb23706b37793d00372a8a3725
 }
 
 button {
@@ -4572,10 +4568,7 @@ input[type=button].btn-block {
   flex-basis: 100%;
   flex-grow: 1;
   align-items: center;
-<<<<<<< HEAD
-=======
   justify-content: space-between;
->>>>>>> 83d4ba49c7e907fb23706b37793d00372a8a3725
 }
 
 .navbar-toggler {
