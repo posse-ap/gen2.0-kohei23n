@@ -308,8 +308,11 @@ const mySecondDonutChart = new Chart(donut2, {
 // TWITTER
 
 function GetTweet(str,code) {
+    // twitter の箱自体を取得
     var text_all = document.getElementById("tweetBox");
-    var input_data = text_all.value.replace(/\r?\n/g, '%0D%0A');
+    // twitter の箱の内容（文字列）を取得
+    // var input_data = text_all.value.replace(/\r?\n/g, '%0D%0A');
+    var input_data = text_all.value;
     TWEET.innerHTML = '<a class="twitter_button" href="https://twitter.com/intent/tweet?text=' + input_data + '" target="_blank">Twitterにシェアする</a>'
 }
 

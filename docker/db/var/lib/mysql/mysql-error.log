@@ -1,0 +1,18 @@
+2022-11-26T11:14:09.921778-00:00 0 [System] [MY-013169] [Server] /usr/sbin/mysqld (mysqld 8.0.28) initializing of server in progress as process 103
+2022-11-26T11:14:09.945336-00:00 0 [Warning] [MY-010159] [Server] Setting lower_case_table_names=2 because file system for /var/lib/mysql/ is case insensitive
+2022-11-26T11:14:10.040681-00:00 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2022-11-26T11:14:10.085942-00:00 1 [ERROR] [MY-012585] [InnoDB] Linux Native AIO interface is not supported on this platform. Please check your OS documentation and install appropriate binary of InnoDB.
+2022-11-26T11:14:10.086883-00:00 1 [Warning] [MY-012654] [InnoDB] Linux Native AIO disabled.
+2022-11-26T11:14:15.060809-00:00 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2022-11-26T11:14:20.025768-00:00 6 [Warning] [MY-010453] [Server] root@localhost is created with an empty password ! Please consider switching off the --initialize-insecure option.
+2022-11-26T11:14:38.822266-00:00 0 [System] [MY-010116] [Server] /usr/sbin/mysqld (mysqld 8.0.28) starting as process 158
+2022-11-26T11:14:38.862482-00:00 0 [Warning] [MY-010159] [Server] Setting lower_case_table_names=2 because file system for /var/lib/mysql/ is case insensitive
+2022-11-26T11:14:39.031718-00:00 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2022-11-26T11:14:39.256476-00:00 1 [ERROR] [MY-012585] [InnoDB] Linux Native AIO interface is not supported on this platform. Please check your OS documentation and install appropriate binary of InnoDB.
+2022-11-26T11:14:39.258272-00:00 1 [Warning] [MY-012654] [InnoDB] Linux Native AIO disabled.
+2022-11-26T11:14:40.603572-00:00 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2022-11-26T11:14:42.545973-00:00 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2022-11-26T11:14:42.548514-00:00 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2022-11-26T11:14:42.559865-00:00 0 [Warning] [MY-011810] [Server] Insecure configuration for --pid-file: Location '/var/run/mysqld' in the path is accessible to all OS users. Consider choosing a different directory.
+2022-11-26T11:14:42.817640-00:00 0 [System] [MY-011323] [Server] X Plugin ready for connections. Socket: /var/run/mysqld/mysqlx.sock
+2022-11-26T11:14:42.822235-00:00 0 [System] [MY-010931] [Server] /usr/sbin/mysqld: ready for connections. Version: '8.0.28'  socket: '/var/run/mysqld/mysqld.sock'  port: 0  MySQL Community Server - GPL.
