@@ -63,39 +63,10 @@ class AppController extends Controller
             'study_time' => $request->input('study_time'),
             'language_id' => $request->input('lang_value'),
             'content_id' => $request->input('content_value'),
-            'language_id' => '1',
-            'content_id' => '1',
+            // 'language_id' => '1',
+            // 'content_id' => '1',
         ]);
 
-        dd($request->input('content_value'));
-
-        // Record::create([
-        //     'study_date' => '2022-9-29',
-        //     'study_time' => '2',
-        //     'languge_id' => '1',
-        //     'content_id' => '1'
-        // ]);
-
-        // //event_generationテーブルにeventとgenerationのidを入れる
-        // $create_data = [];
-        // if ($request->id == "") {
-        //     foreach ($generations as $generation) {
-        //         $create_data[] = [
-        //             'event_id' => $id,
-        //             'generation_id' => $generation
-        //         ];
-        //     }
-        // }else{
-        //     EventGeneration::where('event_id', $request->id)->delete();
-        //     foreach ($generations as $generation) {
-        //         $create_data[] = [
-        //             'event_id' => $request->id,
-        //             'generation_id' => $generation
-        //         ];
-        //     }
-        // }
-        // EventGeneration::insert($create_data);
-        // //トップページに遷移する
         return redirect('/top');
     }
     
