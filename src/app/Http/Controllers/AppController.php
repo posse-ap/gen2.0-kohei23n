@@ -23,9 +23,9 @@ class AppController extends Controller
 
         // 言語円グラフ（グラフで使うデータ）
         $langs = Record::leftJoin('languages', 'records.language_id', '=', 'languages.id')
-                        ->select('languages.language', DB::raw("SUM(records.study_time) as sum"), 'languages.colour')
-                        ->groupBy('languages.language', 'languages.colour')
-                        ->pluck("sum");
+            ->select('languages.language', DB::raw("SUM(records.study_time) as sum"), 'languages.colour')
+            ->groupBy('languages.language', 'languages.colour')
+            ->pluck("sum");
         // 言語円グラフ（ラベル）        
         $langs_labels = Language::pluck("language");
         // 言語円グラフ（色）        
@@ -34,9 +34,9 @@ class AppController extends Controller
 
         // コンテンツ円グラフ（グラフで使うデータ、ラベル、色の取得）
         $contents = Record::leftJoin('contents', 'records.content_id', '=', 'contents.id')
-                            ->select('contents.content', DB::raw("SUM(records.study_time) as sum"), 'contents.colour')
-                            ->groupBy('contents.content', 'contents.colour')
-                            ->pluck("sum");
+            ->select('contents.content', DB::raw("SUM(records.study_time) as sum"), 'contents.colour')
+            ->groupBy('contents.content', 'contents.colour')
+            ->pluck("sum");
         // 言語円グラフ（ラベル）        
         $contents_labels = Content::pluck("content");
         // 言語円グラフ（色）        
@@ -44,30 +44,73 @@ class AppController extends Controller
 
         // 棒グラフ
         $bar = Record::select(DB::raw("SUM(study_time) as sum"))
-                        ->whereYear('study_date', date('Y'))->whereMonth('study_date', date('m'))
-                        ->groupBy('study_date')
-                        ->pluck("sum");
+            ->whereYear('study_date', date('Y'))->whereMonth('study_date', date('m'))
+            ->groupBy('study_date')
+            ->pluck("sum");
 
         $record = Record::all();
-        
-        return view('webapp', compact('today', 'month', 'total', 'langs', 'langs_labels', 'langs_colours', 'contents', 'contents_labels', 'contents_colours', 'bar', 'record'));
+        $all_languages = Language::all();
+        $all_contents = Content::all();
+
+        return view('webapp', compact('today', 'month', 'total', 'langs', 'langs_labels', 'langs_colours', 'contents', 'contents_labels', 'contents_colours', 'bar', 'record', 'all_languages', 'all_contents'));
     }
 
-    public function create(Request $request) 
+    public function create(Request $request)
     {
+
+        $request->validate([
+            'study_date' => 'required',
+            'study_time' => 'required',
+        ], [
+            'study_date.required' => '学習日',
+            'study_time.required'  => '学習時間',
+        ]);
+
         $record = new Record();
 
-        // データベースに値をinsert
-        $record->create([
-            'study_date' => $request->input('study_date'),
-            'study_time' => $request->input('study_time'),
-            'language_id' => $request->input('lang_value'),
-            'content_id' => $request->input('content_value'),
-            // 'language_id' => '1',
-            // 'content_id' => '1',
-        ]);
+        $content_array = $request->input('content_value');
+        $lang_array = $request->input('lang_value');
+        $study_time = $request->input('study_time');
+
+        if (!empty($content_array) && !empty($lang_array)) {
+            // コンテンツと言語を共に複数選択した場合、何に何時間かけたか判断できないためエラーメッセージを返す
+            if (count($content_array) > 1 && count($lang_array) > 1) {
+                session()->flash('alert', '学習コンテンツと学習言語をともに複数選択することはできません。');
+                // コンテンツを複数選択した場合
+            } elseif (count($content_array) > 1 && count($lang_array) === 1) {
+                foreach ($content_array as $content) {
+                    $record->create([
+                        'study_date' => $request->input('study_date'),
+                        'study_time' => $study_time / count($content_array),
+                        'content_id' => $content,
+                        'language_id' => $lang_array[0],
+                    ]);
+                }
+                // 言語を複数選択した場合
+            } elseif (count($lang_array) > 1 && count($content_array) === 1) {
+                foreach ($lang_array as $lang) {
+                    $record->create([
+                        'study_date' => $request->input('study_date'),
+                        'study_time' => $study_time / count($lang_array),
+                        'content_id' => $content_array[0],
+                        'language_id' => $lang,
+                    ]);
+                }
+            } else {
+                $record->create([
+                    'study_date' => $request->input('study_date'),
+                    'study_time' => $study_time / count($lang_array),
+                    'content_id' => $content_array[0],
+                    'language_id' => $lang_array[0],
+                ]);
+            }
+        } else {
+            session()->flash('alert', '学習コンテンツ・学習言語を少なくとも一つ選択してください。');
+        }
+
+
+
 
         return redirect('/top');
     }
-    
 }

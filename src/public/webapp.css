@@ -408,7 +408,6 @@ body {
   margin-right: 0.2vw;
   position: relative;
   align-items: center;
-  cursor: pointer;
 }
 
 .option_clicked {
@@ -422,6 +421,7 @@ body {
   border-radius: 50%;
   display: inline-block;
   margin-left: 0.5vw;
+  cursor: pointer;
 }
 
 .circle_clicked {

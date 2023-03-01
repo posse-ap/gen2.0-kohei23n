@@ -16,7 +16,7 @@ class CreateRecordsTable extends Migration
         Schema::create('records', function (Blueprint $table) {
             $table->increments('id');
             $table->string('study_date');
-            $table->integer('study_time');
+            $table->decimal('study_time');
             $table->integer('language_id');
             $table->integer('content_id');
             $table->timestamps();

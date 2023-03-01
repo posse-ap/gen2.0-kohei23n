@@ -30,54 +30,33 @@ $(function () {
   });
 });
 
-// CHANGE COLOR OF CHECKBOXES (PC)
-
-
-//動的なidをつける
-let contentname = "content"
-let firstcirclename = "firstcircle"
-let option1 = document.getElementsByClassName("content_op");
-let circle1 = document.getElementsByClassName("circle_content");
-
-
-for (let i = 0; i <= 2; i++) {
-    //id追加
-    option1[i].setAttribute("id", contentname + i);
-    circle1[i].setAttribute("id", firstcirclename + i);
-}
-
-for (let i = 0; i <= 2; i++) {
-  let contentbox = document.getElementById(`content${i}`);
-  let firstcircles = document.getElementById(`firstcircle${i}`);
-  contentbox.addEventListener('click', function() {
-    contentbox.classList.toggle('option_clicked')
-    firstcircles.classList.toggle('circle_clicked');
-  })
-}
-
-let langname = "lang"
-let secondcirclename = "secondcircle";
-let option2 = document.getElementsByClassName("lang_op");
-let circle2 = document.getElementsByClassName("circle_lang");
-
-for (let i = 0; i <= 7; i++) {
-    //id追加
-    option2[i].setAttribute("id", langname + i);
-    circle2[i].setAttribute("id", secondcirclename + i);
-}
-
-for (let i = 0; i <= 7; i++) {
-  let langbox = document.getElementById(`lang${i}`);
-  let secondcircles = document.getElementById(`secondcircle${i}`);
-  langbox.addEventListener('click', function() {
-    langbox.classList.toggle('option_clicked');
-    secondcircles.classList.toggle('circle_clicked');
-  })
-}
 
 // DATE 
 
 $('#datepicker').datepicker({ dateFormat: 'yy-mm-dd' }).val();
+
+// CHANGE COLOR OF CHECKBOXES (PC)
+
+// CONTENT
+for (let i = 1; i <= 3; i++) {
+  let content_box = document.getElementById(`content${i}`);
+  let content_labels = document.getElementById(`content_label${i}`);
+  content_labels.addEventListener('click', function() {
+    content_box.classList.toggle('option_clicked')
+    content_labels.classList.toggle('circle_clicked');
+  })
+}
+
+// LANGUAGE
+for (let i = 1; i <= 8; i++) {
+  let lang_box = document.getElementById(`language${i}`);
+  let lang_labels = document.getElementById(`language_label${i}`);
+  lang_labels.addEventListener('click', function() {
+    lang_box.classList.toggle('option_clicked');
+    lang_labels.classList.toggle('circle_clicked');
+  })
+}
+
 
 // LOADING (PC)
 
