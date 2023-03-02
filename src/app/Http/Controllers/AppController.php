@@ -46,6 +46,7 @@ class AppController extends Controller
         $bar = Record::select(DB::raw("SUM(study_time) as sum"))
             ->whereYear('study_date', date('Y'))->whereMonth('study_date', date('m'))
             ->groupBy('study_date')
+            ->orderBy('study_date')
             ->pluck("sum");
 
         $record = Record::all();

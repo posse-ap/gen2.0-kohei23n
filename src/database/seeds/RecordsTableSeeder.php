@@ -14,63 +14,63 @@ class RecordsTableSeeder extends Seeder
     public function run()
     {
         Record::create([
-            'study_date' => '2023-03-1',
+            'study_date' => '2023-03-01',
             'study_time' => 2,
             'language_id' => 1,
             'content_id' => 1,
         ]);
 
         Record::create([
-            'study_date' => '2023-03-2',
+            'study_date' => '2023-03-02',
             'study_time' => 3,
             'language_id' => 2,
             'content_id' => 1,
         ]);
 
         Record::create([
-            'study_date' => '2023-03-3',
+            'study_date' => '2023-03-03',
             'study_time' => 4,
             'language_id' => 3,
             'content_id' => 1,
         ]);
 
         Record::create([
-            'study_date' => '2023-03-4',
+            'study_date' => '2023-03-04',
             'study_time' => 2,
             'language_id' => 4,
             'content_id' => 1,
         ]);
 
         Record::create([
-            'study_date' => '2023-03-5',
+            'study_date' => '2023-03-05',
             'study_time' => 0,
             'language_id' => 1,
             'content_id' => 2
         ]);
 
         Record::create([
-            'study_date' => '2023-03-6',
+            'study_date' => '2023-03-06',
             'study_time' => 4,
             'language_id' => 2,
             'content_id' => 2,
         ]);
 
         Record::create([
-            'study_date' => '2023-03-9',
+            'study_date' => '2023-03-09',
             'study_time' => 2,
             'language_id' => 3,
             'content_id' => 2,
         ]);
 
         Record::create([
-            'study_date' => '2023-03-8',
+            'study_date' => '2023-03-08',
             'study_time' => 3,
             'language_id' => 4,
             'content_id' => 2,
         ]);
 
         Record::create([
-            'study_date' => '2023-03-9',
+            'study_date' => '2023-03-09',
             'study_time' => 3,
             'language_id' => 1,
             'content_id' => 3,
