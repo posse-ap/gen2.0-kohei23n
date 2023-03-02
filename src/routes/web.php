@@ -15,8 +15,8 @@ Route::get('/', function () {
       return view('welcome');
 });
 
-Route::get('/top', 'AppController@index');
-      // ->middleware('auth');
+Route::get('/top', 'AppController@index')
+      ->middleware('auth');
 Route::post('/top', 'AppController@create')->name('add_record');
 
 Auth::routes();

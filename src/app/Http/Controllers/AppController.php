@@ -76,8 +76,8 @@ class AppController extends Controller
         if (!empty($content_array) && !empty($lang_array)) {
             // コンテンツと言語を共に複数選択した場合、何に何時間かけたか判断できないためエラーメッセージを返す
             if (count($content_array) > 1 && count($lang_array) > 1) {
-                session()->flash('alert', '学習コンテンツと学習言語をともに複数選択することはできません。');
-                // コンテンツを複数選択した場合
+                session()->flash('fail', '学習コンテンツと学習言語をともに複数選択することはできません。');
+            // コンテンツを複数選択した場合
             } elseif (count($content_array) > 1 && count($lang_array) === 1) {
                 foreach ($content_array as $content) {
                     $record->create([
@@ -87,7 +87,7 @@ class AppController extends Controller
                         'language_id' => $lang_array[0],
                     ]);
                 }
-                // 言語を複数選択した場合
+            // 言語を複数選択した場合
             } elseif (count($lang_array) > 1 && count($content_array) === 1) {
                 foreach ($lang_array as $lang) {
                     $record->create([
@@ -97,6 +97,7 @@ class AppController extends Controller
                         'language_id' => $lang,
                     ]);
                 }
+            // それ以外（どちらも一つずつ選ぶ想定で）
             } else {
                 $record->create([
                     'study_date' => $request->input('study_date'),
@@ -105,8 +106,9 @@ class AppController extends Controller
                     'language_id' => $lang_array[0],
                 ]);
             }
+            session()->flash('success', 'データが正常に追加されました。');
         } else {
-            session()->flash('alert', '学習コンテンツ・学習言語を少なくとも一つ選択してください。');
+            session()->flash('fail', '学習コンテンツ・学習言語を少なくとも一つ選択してください。');
         }
 
 

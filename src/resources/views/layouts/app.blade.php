@@ -11,7 +11,7 @@
 
     <!-- Scripts -->
     @yield('header_scripts')
-    {{-- <script src="{{ asset('js/app.js') }}"></script> --}}
+    <script src="{{ asset('js/app.js') }}"></script>
 
 
     <!-- Fonts -->
@@ -34,8 +34,11 @@
                         <div class="img_cont"></div>
                     </div>
 
-
+                    @guest 
+                    <p></p>
+                    @else 
                     <a href="#modal" class="modal_button" id="modalbtn">記録・投稿</a>
+                    @endguest
 
                     <!-- Right Side Of Navbar -->
                     <div class="navbar-nav">

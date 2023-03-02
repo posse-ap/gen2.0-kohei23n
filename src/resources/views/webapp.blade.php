@@ -15,7 +15,10 @@
         @if ($errors->any())
             <p class="alert alert-danger">@foreach ($errors->all() as $error) {{ $error }} @endforeach を記入しましょう</p>
         @endif
-        @if (session()->has('alert'))
+        @if (session()->has('success'))
+            <p class="alert alert-success">{{ session('success') }}</p>
+        @endif
+        @if (session()->has('fail'))
             <p class="alert alert-danger">{{ session('alert') }}</p>
         @endif
     </div>
