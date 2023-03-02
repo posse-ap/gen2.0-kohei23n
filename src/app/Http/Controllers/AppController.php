@@ -23,22 +23,22 @@ class AppController extends Controller
 
         // 言語円グラフ（グラフで使うデータ）
         $langs = Record::leftJoin('languages', 'records.language_id', '=', 'languages.id')
-            ->select('languages.language', DB::raw("SUM(records.study_time) as sum"), 'languages.colour')
-            ->groupBy('languages.language', 'languages.colour')
+            ->select('languages.name', DB::raw("SUM(records.study_time) as sum"), 'languages.colour')
+            ->groupBy('languages.name', 'languages.colour')
             ->pluck("sum");
         // 言語円グラフ（ラベル）        
-        $langs_labels = Language::pluck("language");
+        $langs_labels = Language::pluck("name");
         // 言語円グラフ（色）        
         $langs_colours = Language::pluck("colour");
 
 
         // コンテンツ円グラフ（グラフで使うデータ、ラベル、色の取得）
         $contents = Record::leftJoin('contents', 'records.content_id', '=', 'contents.id')
-            ->select('contents.content', DB::raw("SUM(records.study_time) as sum"), 'contents.colour')
-            ->groupBy('contents.content', 'contents.colour')
+            ->select('contents.name', DB::raw("SUM(records.study_time) as sum"), 'contents.colour')
+            ->groupBy('contents.name', 'contents.colour')
             ->pluck("sum");
         // 言語円グラフ（ラベル）        
-        $contents_labels = Content::pluck("content");
+        $contents_labels = Content::pluck("name");
         // 言語円グラフ（色）        
         $contents_colours = Content::pluck("colour");
 

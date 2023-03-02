@@ -144,7 +144,7 @@
                                             class="circle_gray circle_content">
                                             <div class="arrow_check"></div>
                                         </label>
-                                        <p class="label">{{ $content->content }}</p>
+                                        <p class="label">{{ $content->name }}</p>
                                     </div>
                                 @endforeach
                             </div>
@@ -160,7 +160,7 @@
                                             for="language_box{{ $language->id }}" class="circle_gray circle_lang">
                                             <div class="arrow_check"></div>
                                         </label>
-                                        <p class="label">{{ $language->language }}</p>
+                                        <p class="label">{{ $language->name }}</p>
                                     </div>
                                 @endforeach
                             </div>
@@ -182,11 +182,6 @@
                                 <div class="arrow_check_twitter"></div>
                             </label>
                             <span id="tweet">Twitterにシェアする</span>
-                            <!-- <div class="twitter_circle" id="twitter_circle"></div> -->
-                            <!-- <span id="TWEET" class="tweet_button_cont"> -->
-                            <!-- <a class="tweet_button" href="https://twitter.com/intent/tweet?text=" target="_blank" >Twitterにシェアする</a> -->
-                            <!-- Twitterにシェアする -->
-                            <!-- </span> -->
                         </div>
                     </div>
                 </div>

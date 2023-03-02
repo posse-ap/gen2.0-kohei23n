@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Database\Seeder;
-// use App\Models\Record;
 use App\Record;
 
 class RecordsTableSeeder extends Seeder

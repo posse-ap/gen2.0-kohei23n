@@ -1,5 +1,6 @@
 <?php
 
+use App\Content;
 use Illuminate\Database\Seeder;
 
 class ContentsTableSeeder extends Seeder
@@ -11,18 +12,20 @@ class ContentsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('contents')->insert(
-            [
-                ['content' => 'N予備校',
-                'colour' => '#0445ec',
-                ],
-                ['language' => '課題',
-                'colour' => '#0f70bd',
-                ],
-                ['language' => 'ドットインストール',
-                'colour' => '#20bdde',
-                ],
-            ]    
-        );
+
+        Content::create([
+            'name' => 'N予備校',
+            'colour' => '#0445ec',
+        ]);
+
+        Content::create([
+            'name' => '課題',
+            'colour' => '#0f70bd',
+        ]);
+
+        Content::create([
+            'name' => 'ドットインストール',
+            'colour' => '#20bdde',
+        ]);
     }
 }
