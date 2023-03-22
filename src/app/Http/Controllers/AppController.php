@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
+use Auth;
 use App\Record;
 use App\Language;
 use App\Content;
@@ -12,18 +13,18 @@ class AppController extends Controller
 {
     public function index()
     {
+        $user_id = Auth::user()->id;
         // 今日の学習時間
-        $today = Record::whereDate('study_date', date('Y-m-d'))->sum('study_time');
-
+        $today = Record::where('user_id', $user_id)->whereDate('study_date', date('Y-m-d'))->sum('study_time');
         // 今月の学習時間
-        $month = Record::whereYear('study_date', date('Y'))->whereMonth('study_date', date('m'))->sum('study_time');
-
+        $month = Record::where('user_id', $user_id)->whereYear('study_date', date('Y'))->whereMonth('study_date', date('m'))->sum('study_time');
         // 合計学習時間
-        $total = Record::sum('study_time');
+        $total = Record::where('user_id', $user_id)->sum('study_time');
 
         // 言語円グラフ（グラフで使うデータ）
         $langs = Record::leftJoin('languages', 'records.language_id', '=', 'languages.id')
             ->select('languages.name', DB::raw("SUM(records.study_time) as sum"), 'languages.colour')
+            ->where('user_id', $user_id)
             ->groupBy('languages.name', 'languages.colour')
             ->pluck("sum");
         // 言語円グラフ（ラベル）        
@@ -35,6 +36,7 @@ class AppController extends Controller
         // コンテンツ円グラフ（グラフで使うデータ、ラベル、色の取得）
         $contents = Record::leftJoin('contents', 'records.content_id', '=', 'contents.id')
             ->select('contents.name', DB::raw("SUM(records.study_time) as sum"), 'contents.colour')
+            ->where('user_id', $user_id)
             ->groupBy('contents.name', 'contents.colour')
             ->pluck("sum");
         // 言語円グラフ（ラベル）        
@@ -45,15 +47,15 @@ class AppController extends Controller
         // 棒グラフ
         $bar = Record::select(DB::raw("SUM(study_time) as sum"))
             ->whereYear('study_date', date('Y'))->whereMonth('study_date', date('m'))
+            ->where('user_id', $user_id)
             ->groupBy('study_date')
             ->orderBy('study_date')
             ->pluck("sum");
 
-        $record = Record::all();
         $all_languages = Language::all();
         $all_contents = Content::all();
 
-        return view('webapp', compact('today', 'month', 'total', 'langs', 'langs_labels', 'langs_colours', 'contents', 'contents_labels', 'contents_colours', 'bar', 'record', 'all_languages', 'all_contents'));
+        return view('webapp', compact('today', 'month', 'total', 'langs', 'langs_labels', 'langs_colours', 'contents', 'contents_labels', 'contents_colours', 'bar', 'all_languages', 'all_contents'));
     }
 
     public function create(Request $request)
@@ -81,6 +83,7 @@ class AppController extends Controller
             } elseif (count($content_array) > 1 && count($lang_array) === 1) {
                 foreach ($content_array as $content) {
                     $record->create([
+                        'user_id' => Auth::user()->id,
                         'study_date' => $request->input('study_date'),
                         'study_time' => $study_time / count($content_array),
                         'content_id' => $content,
@@ -91,6 +94,7 @@ class AppController extends Controller
             } elseif (count($lang_array) > 1 && count($content_array) === 1) {
                 foreach ($lang_array as $lang) {
                     $record->create([
+                        'user_id' => Auth::user()->id,
                         'study_date' => $request->input('study_date'),
                         'study_time' => $study_time / count($lang_array),
                         'content_id' => $content_array[0],
@@ -100,6 +104,7 @@ class AppController extends Controller
             // それ以外（どちらも一つずつ選ぶ想定で）
             } else {
                 $record->create([
+                    'user_id' => Auth::user()->id,
                     'study_date' => $request->input('study_date'),
                     'study_time' => $study_time / count($lang_array),
                     'content_id' => $content_array[0],

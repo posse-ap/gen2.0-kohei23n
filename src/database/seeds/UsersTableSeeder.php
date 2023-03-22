@@ -19,8 +19,14 @@ class UsersTableSeeder extends Seeder
         ]);
         DB::table('users')->insert([
             'role_id' => 2,
-            'name' => 'user',
-            'email' => 'user@gmail.com',
+            'name' => 'user1',
+            'email' => 'user1@gmail.com',
+            'password' => '$2y$10$vIztxS465H0EWG695cxPL.xhHKSQjP/thFmxEM9GurDIbdm95anoO',
+        ]);
+        DB::table('users')->insert([
+            'role_id' => 2,
+            'name' => 'user2',
+            'email' => 'user2@gmail.com',
             'password' => '$2y$10$vIztxS465H0EWG695cxPL.xhHKSQjP/thFmxEM9GurDIbdm95anoO',
         ]);
     }
