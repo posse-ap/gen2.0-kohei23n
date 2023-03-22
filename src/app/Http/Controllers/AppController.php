@@ -23,12 +23,12 @@ class AppController extends Controller
 
         // 言語円グラフ（グラフで使うデータ）
         $langs = Record::leftJoin('languages', 'records.language_id', '=', 'languages.id')
-            ->select('languages.name', DB::raw("SUM(records.study_time) as sum, MIN(languages.id)"),'languages.colour')
+            ->select('languages.name', DB::raw("SUM(records.study_time) as sum, MIN(languages.id)"), 'languages.colour')
             ->where('user_id', $user_id)
             ->groupBy('languages.name', 'languages.colour')
             ->orderByRaw('MIN(languages.id)')
             ->pluck("sum");
-            // ->get();
+        // ->get();
         // dd($langs);
         // 言語円グラフ（ラベル）
         $langs_labels = Language::pluck("name");
@@ -87,7 +87,7 @@ class AppController extends Controller
             // コンテンツと言語を共に複数選択した場合、何に何時間かけたか判断できないためエラーメッセージを返す
             if (count($content_array) > 1 && count($lang_array) > 1) {
                 session()->flash('fail', '学習コンテンツと学習言語をともに複数選択することはできません。');
-            // コンテンツを複数選択した場合
+                // コンテンツを複数選択した場合
             } elseif (count($content_array) > 1 && count($lang_array) === 1) {
                 foreach ($content_array as $content) {
                     $record->create([
@@ -98,7 +98,9 @@ class AppController extends Controller
                         'language_id' => $lang_array[0],
                     ]);
                 }
-            // 言語を複数選択した場合
+                session()->flash('success', 'データが正常に追加されました。');
+
+                // 言語を複数選択した場合
             } elseif (count($lang_array) > 1 && count($content_array) === 1) {
                 foreach ($lang_array as $lang) {
                     $record->create([
@@ -109,7 +111,9 @@ class AppController extends Controller
                         'language_id' => $lang,
                     ]);
                 }
-            // それ以外（どちらも一つずつ選ぶ想定で）
+                session()->flash('success', 'データが正常に追加されました。');
+
+                // それ以外（どちらも一つずつ選ぶ想定で）
             } else {
                 $record->create([
                     'user_id' => $user_id,
@@ -118,8 +122,8 @@ class AppController extends Controller
                     'content_id' => $content_array[0],
                     'language_id' => $lang_array[0],
                 ]);
+                session()->flash('success', 'データが正常に追加されました。');
             }
-            session()->flash('success', 'データが正常に追加されました。');
         } else {
             session()->flash('fail', '学習コンテンツ・学習言語を少なくとも一つ選択してください。');
         }

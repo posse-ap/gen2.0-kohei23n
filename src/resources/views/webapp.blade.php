@@ -23,7 +23,10 @@
             <p class="alert alert-success">{{ session('success') }}</p>
         @endif
         @if (session()->has('fail'))
-            <p class="alert alert-danger">{{ session('alert') }}</p>
+            <p class="alert alert-danger">{{ session('fail') }}</p>
+        @endif
+        @if (session()->has('auth_message'))
+            <p class="alert alert-danger">{{ session('auth_message') }}</p>
         @endif
     </div>
     <!-- MAIN -->

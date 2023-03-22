@@ -16,7 +16,7 @@ Route::get('/', function () {
 });
 
 // 管理者
-Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
+Route::group(['middleware' => ['loginUserCheck'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
       // ユーザー管理
       Route::get('/manageusers', 'UserController@index');
       // ユーザー追加
