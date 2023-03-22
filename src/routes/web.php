@@ -27,15 +27,25 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
       Route::post('/edituser/{id}', 'UserController@update');
       Route::get('/deleteuser/{id}', 'UserController@delete');
 
-      // コンテンツ管理
+      // 学習コンテンツ管理
       Route::get('/managecontent', 'ContentController@index');
-      // コンテンツ追加
+      // 学習コンテンツ追加
       Route::get('/addcontent', 'ContentController@create');
       Route::post('/addcontent', 'ContentController@add');
-      // コンテンツ編集
+      // 学習コンテンツ編集
       Route::get('/editcontent/{id}', 'ContentController@edit');
       Route::post('/editcontent/{id}', 'ContentController@update');
       Route::get('/deletecontent/{id}', 'ContentController@delete');
+
+      // 学習言語管理
+      Route::get('/managelanguages', 'LanguageController@index');
+      // 学習言語追加
+      Route::get('/addlanguage', 'LanguageController@create');
+      Route::post('/addlanguage', 'LanguageController@add');
+      // 学習言語編集
+      Route::get('/editlanguage/{id}', 'LanguageController@edit');
+      Route::post('/editlanguage/{id}', 'LanguageController@update');
+      Route::get('/deletelanguage/{id}', 'LanguageController@delete');
 });
 
 

@@ -39,36 +39,23 @@ $('#datepicker').datepicker({
 
 // CHANGE COLOR OF CHECKBOXES (PC)
 
-// CONTENT
-// for (let i = 1; i <= 4; i++) {
-//   let content_box = document.getElementById(`content${i}`);
-//   let content_labels = document.getElementById(`content_label${i}`);
-//   content_labels.addEventListener('click', function() {
-//     content_box.classList.toggle('option_clicked')
-//     content_labels.classList.toggle('circle_clicked');
-//   })
-// }
-
 let content_box = document.querySelectorAll('.content_box');
 let content_labels = document.querySelectorAll('.content_labels');
 content_labels.forEach(function (element, index) {
     element.addEventListener('click', function () {
         element.classList.toggle('circle_clicked')
-      content_box[index].classList.toggle('option_clicked')
+        content_box[index].classList.toggle('option_clicked')
     })
 });
 
-
-
-// LANGUAGE
-for (let i = 1; i <= 8; i++) {
-    let lang_box = document.getElementById(`language${i}`);
-    let lang_labels = document.getElementById(`language_label${i}`);
-    lang_labels.addEventListener('click', function () {
-        lang_box.classList.toggle('option_clicked');
-        lang_labels.classList.toggle('circle_clicked');
+let language_box = document.querySelectorAll('.language_box');
+let language_labels = document.querySelectorAll('.language_labels');
+language_labels.forEach(function (element, index) {
+    element.addEventListener('click', function () {
+        element.classList.toggle('circle_clicked')
+        language_box[index].classList.toggle('option_clicked')
     })
-}
+});
 
 
 // LOADING (PC)

@@ -11,12 +11,12 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('admin.manageusers', compact('users'));
+        return view('admin.users.manageusers', compact('users'));
     }
 
     public function create()
     {
-        return view('admin.adduser');
+        return view('admin.users.adduser');
     }
 
     public function add(Request $request)
@@ -49,7 +49,7 @@ class UserController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view('admin.edituser', compact('user'));
+        return view('admin.users.edituser', compact('user'));
     }
 
     public function update(Request $request, $id)

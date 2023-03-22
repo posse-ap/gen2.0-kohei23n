@@ -23,21 +23,25 @@ class AppController extends Controller
 
         // 言語円グラフ（グラフで使うデータ）
         $langs = Record::leftJoin('languages', 'records.language_id', '=', 'languages.id')
-            ->select('languages.name', DB::raw("SUM(records.study_time) as sum"), 'languages.colour')
+            ->select('languages.name', DB::raw("SUM(records.study_time) as sum, MIN(languages.id)"),'languages.colour')
             ->where('user_id', $user_id)
             ->groupBy('languages.name', 'languages.colour')
+            ->orderByRaw('MIN(languages.id)')
             ->pluck("sum");
-        // 言語円グラフ（ラベル）        
+            // ->get();
+        // dd($langs);
+        // 言語円グラフ（ラベル）
         $langs_labels = Language::pluck("name");
-        // 言語円グラフ（色）        
+        // 言語円グラフ（色）
         $langs_colours = Language::pluck("colour");
 
 
         // コンテンツ円グラフ（グラフで使うデータ、ラベル、色の取得）
         $contents = Record::leftJoin('contents', 'records.content_id', '=', 'contents.id')
-            ->select('contents.name', DB::raw("SUM(records.study_time) as sum"), 'contents.colour')
+            ->select('contents.name', DB::raw("SUM(records.study_time) as sum, MIN(contents.id)"), 'contents.colour')
             ->where('user_id', $user_id)
             ->groupBy('contents.name', 'contents.colour')
+            ->orderByRaw('MIN(contents.id)')
             ->pluck("sum");
         // 言語円グラフ（ラベル）        
         $contents_labels = Content::pluck("name");
@@ -53,9 +57,12 @@ class AppController extends Controller
             ->pluck("sum");
 
         $all_languages = Language::all();
-        $all_contents = Content::where('display', 1)->get();
+        $languages_on_display = Language::where('display', 1)->get();
 
-        return view('webapp', compact('today', 'month', 'total', 'langs', 'langs_labels', 'langs_colours', 'contents', 'contents_labels', 'contents_colours', 'bar', 'all_languages', 'all_contents'));
+        $all_contents = Content::all();
+        $contents_on_display = Content::where('display', 1)->get();
+
+        return view('webapp', compact('today', 'month', 'total', 'langs', 'langs_labels', 'langs_colours', 'contents', 'contents_labels', 'contents_colours', 'bar', 'all_languages', 'all_contents', 'languages_on_display', 'contents_on_display'));
     }
 
     public function create(Request $request)

@@ -70,10 +70,6 @@ const myColumnChart = new Chart(column, {
 
 // STUDY LANGUAGE
 
-// const langs_data_array = Object.values(langs_data);
-// const langs_labels_array = Object.values(langs_labels);
-// const langs_colours_array = Object.values(langs_colours);
-
 const donut1 = document.getElementById('donut_lang').getContext('2d');
 
 const myFirstDonutChart = new Chart(donut1, {
@@ -113,10 +109,6 @@ const myFirstDonutChart = new Chart(donut1, {
 });
 
 // STUDY CONTENT
-
-// const contents_data_array = Object.values(contents_data);
-// const contents_labels_array = Object.values(contents_labels);
-// const contents_colours_array = Object.values(contents_colours);
 
 const donut2 = document.getElementById('donut_content').getContext('2d');
 

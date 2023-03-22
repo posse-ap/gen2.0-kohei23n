@@ -13,7 +13,11 @@
 @section('content')
     <div style="text-align: center">
         @if ($errors->any())
-            <p class="alert alert-danger">@foreach ($errors->all() as $error) {{ $error }} @endforeach を記入してください。</p>
+            <p class="alert alert-danger">
+                @foreach ($errors->all() as $error)
+                    {{ $error }}
+                @endforeach を記入してください。
+            </p>
         @endif
         @if (session()->has('success'))
             <p class="alert alert-success">{{ session('success') }}</p>
@@ -59,11 +63,11 @@
                 <canvas id="donut_lang"></canvas>
                 <div class="legend_cont_lang">
                     @foreach ($all_languages as $language)
-                    <div class="legend">
-                        <div class="legend_circle" style="background-color: {{ $language->colour }}"></div>
-                        <p>{{ $language->name }}</p>
-                    </div>
-                    @endforeach 
+                        <div class="legend">
+                            <div class="legend_circle" style="background-color: {{ $language->colour }}"></div>
+                            <p>{{ $language->name }}</p>
+                        </div>
+                    @endforeach
                 </div>
             </div>
 
@@ -72,11 +76,11 @@
                 <canvas id="donut_content"></canvas>
                 <div class="legend_cont_content">
                     @foreach ($all_contents as $content)
-                    <div class="legend">
-                        <div class="legend_circle" style="background-color: {{ $content->colour }}"></div>
-                        <p>{{ $content->name }}</p>
-                    </div>
-                    @endforeach 
+                        <div class="legend">
+                            <div class="legend_circle" style="background-color: {{ $content->colour }}"></div>
+                            <p>{{ $content->name }}</p>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -104,7 +108,7 @@
                         <div class="modal_content">
                             <h1 class="modal_title">学習コンテンツ（複数選択可）</h1>
                             <div class="option_cont">
-                                @foreach ($all_contents as $content)
+                                @foreach ($contents_on_display as $content)
                                     <div class="option content_op content_box">
                                         <input id="content_box{{ $content->id }}" name="content_value[]"
                                             value="{{ $content->id }}" type="checkbox" style="display: none">
@@ -120,12 +124,13 @@
                         <div class="modal_lang">
                             <h1 class="modal_title">学習言語（複数選択可）</h1>
                             <div class="option_cont">
-                                @foreach ($all_languages as $language)
-                                    <div class="option lang_op" id="language{{ $language->id }}">
+                                @foreach ($languages_on_display as $language)
+                                    <div class="option lang_op language_box">
                                         <input id="language_box{{ $language->id }}" name="lang_value[]"
                                             value="{{ $language->id }}" type="checkbox" style="display: none">
                                         <label id="language_label{{ $language->id }}"
-                                            for="language_box{{ $language->id }}" class="circle_gray circle_lang">
+                                            for="language_box{{ $language->id }}"
+                                            class="circle_gray circle_lang language_labels">
                                             <div class="arrow_check"></div>
                                         </label>
                                         <p class="label">{{ $language->name }}</p>

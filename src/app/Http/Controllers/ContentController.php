@@ -3,20 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
 use App\Content;
-use App\Record;
 
 class ContentController extends Controller
 {
     public function index()
     {
-        $contents = Content::all();
-        return view('admin.managecontent', compact('contents'));
+        $contents = Content::where('display', 1)->get();
+        return view('admin.contents.managecontent', compact('contents'));
     }
     public function create()
     {
-        return view('admin.addcontent');
+        return view('admin.contents.addcontent');
     }
 
     public function add(Request $request)
@@ -39,7 +37,7 @@ class ContentController extends Controller
     public function edit($id)
     {
         $content = Content::find($id);
-        return view('admin.editcontent', compact('content'));
+        return view('admin.contents.editcontent', compact('content'));
     }
 
     public function update(Request $request, $id)

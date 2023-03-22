@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="admin_container">
-        <h2>コンテンツ追加</h2>
+        <h2>学習コンテンツ追加</h2>
         @if ($errors->any())
             <p class="alert alert-danger">@foreach ($errors->all() as $error) {{ $error }} @endforeach を記入してください。</p>
         @endif

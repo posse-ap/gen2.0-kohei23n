@@ -8,7 +8,10 @@
                     <a class="nav-link active" aria-current="page" href="#">ユーザー管理</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/admin/managecontent">コンテンツ管理</a>
+                    <a class="nav-link" href="/admin/managecontent">学習コンテンツ管理</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/managelanguages">学習言語管理</a>
                 </li>
             </ul>
         </nav>

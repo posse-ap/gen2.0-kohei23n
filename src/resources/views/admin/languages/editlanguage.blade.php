@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="admin_container">
-        <h2>コンテンツ追加</h2>
+        <h2>学習言語編集</h2>
         @if ($errors->any())
             <p class="alert alert-danger">
                 @foreach ($errors->all() as $error)
@@ -16,14 +16,14 @@
         <form action="" method="POST">
             @csrf
             <div>
-              <label for="new_name">名前</label>
-              <input id="new_name" name="name" type="text" value="{{ $content->name }}">
+                <label for="new_name">名前</label>
+                <input id="new_name" name="name" type="text" value="{{ $language->name }}">
             </div>
             <div>
-              <label for="new_colour">グラフにおける色</label>
-              <input id="new_colour" name="colour" type="color" value="{{ $content->colour }}">
+                <label for="new_colour">グラフにおける色</label>
+                <input id="new_colour" name="colour" type="color" value="{{ $language->colour }}">
             </div>
             <input type="submit" class="btn btn-success" value="コンテンツ更新">
-            <a href="/admin/deletecontent/{{ $content->id }}" class="btn btn-danger">削除</a>
+            <a href="/admin/deletelanguage/{{ $language->id }}" class="btn btn-danger">削除</a>
     </div>
 @endsection
