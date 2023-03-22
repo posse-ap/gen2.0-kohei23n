@@ -53,7 +53,7 @@ class AppController extends Controller
             ->pluck("sum");
 
         $all_languages = Language::all();
-        $all_contents = Content::all();
+        $all_contents = Content::where('display', 1)->get();
 
         return view('webapp', compact('today', 'month', 'total', 'langs', 'langs_labels', 'langs_colours', 'contents', 'contents_labels', 'contents_colours', 'bar', 'all_languages', 'all_contents'));
     }

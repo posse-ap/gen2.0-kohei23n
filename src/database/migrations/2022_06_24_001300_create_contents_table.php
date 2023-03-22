@@ -17,6 +17,7 @@ class CreateContentsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('colour');
+            $table->boolean('display')->default(1);
             $table->timestamps();
         });
     }

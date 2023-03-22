@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use App\Content;
+use App\Record;
 
 class ContentController extends Controller
 {
@@ -37,24 +38,24 @@ class ContentController extends Controller
 
     public function edit($id)
     {
-        $user = User::find($id);
-        return view('admin.edituser', compact('user'));
+        $content = Content::find($id);
+        return view('admin.editcontent', compact('content'));
     }
 
     public function update(Request $request, $id)
     {
-        $user = User::find($id);
-        $user->name = $request->input('name');
-        $user->email = $request->input('email');
-        $user->password = Hash::make($request->input('password'));
-        $user->role_id = $request->input('role_id');
-        $user->save();
-        return redirect('/admin/manageusers');
+        $content = Content::find($id);
+        $content->name = $request->input('name');
+        $content->colour = $request->input('colour');
+        $content->save();
+        return redirect('/admin/managecontent');
     }
 
     public function delete($id)
     {
-        User::where('id', $id)->delete();
-        return redirect('/admin/manageusers');
+        $content = Content::find($id);
+        $content->display = 0;
+        $content->save();
+        return redirect('/admin/managecontent');
     }
 }
