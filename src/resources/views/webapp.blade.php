@@ -13,7 +13,7 @@
 @section('content')
     <div style="text-align: center">
         @if ($errors->any())
-            <p class="alert alert-danger">@foreach ($errors->all() as $error) {{ $error }} @endforeach を記入しましょう</p>
+            <p class="alert alert-danger">@foreach ($errors->all() as $error) {{ $error }} @endforeach を記入してください。</p>
         @endif
         @if (session()->has('success'))
             <p class="alert alert-success">{{ session('success') }}</p>

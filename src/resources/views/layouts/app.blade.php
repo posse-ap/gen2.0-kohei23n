@@ -36,6 +36,8 @@
 
                     @guest 
                     <p></p>
+                    @elseif (Auth::user()->role_id === 1)
+                    <p></p>
                     @else 
                     <a href="#modal" class="modal_button" id="modalbtn">記録・投稿</a>
                     @endguest

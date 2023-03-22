@@ -2,9 +2,30 @@ body {
   margin: 0;
 }
 
+a {
+  text-decoration: none;
+}
+
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
 /* HEADER */
 
-.container {
+.container{
   height: 10vh;
   align-items: center;
   justify-content: center;
@@ -1221,4 +1242,11 @@ body {
     margin: 5vw 0 0 0;
   }
 }
+
+.admin_container {
+  width: 70%;
+  margin: 30px auto;
+}
+
+
 
