@@ -20,7 +20,7 @@ th {
 }
 
 tr:nth-child(even) {
-  background-color: #dddddd;
+  background-color: #F0F0F0;
 }
 
 /* HEADER */
@@ -237,41 +237,6 @@ tr:nth-child(even) {
   width: 0.9vw;
   border-radius: 50%;
   margin-left: 0.5vw;
-}
-
-.html_circle,
-.n_circle {
-  background-color: #0445ec;
-}
-
-.css_circle,
-.kadai_circle {
-  background-color: #0f70bd;
-}
-
-.sql_circle,
-.dot_circle {
-  background-color: #20bdde;
-}
-
-.shell_circle {
-  background-color: #3ccefe;
-}
-
-.js_circle {
-  background-color: #b29ef3;
-}
-
-.other_circle {
-  background-color: #6c46eb;
-}
-
-.php_circle {
-  background-color: #4a17ef;
-}
-
-.laravel_circle {
-  background-color: #3005c0;
 }
 
 /* BOTTOM */

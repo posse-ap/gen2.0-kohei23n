@@ -3,17 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Redirect;
 use App\User;
 
-class AdminController extends Controller
+class UserController extends Controller
 {
     public function index()
     {
-        $users = DB::table('users')->get();
-        return view('admin.index', compact('users'));
+        $users = User::all();
+        return view('admin.manageusers', compact('users'));
     }
 
     public function create()
@@ -45,7 +43,7 @@ class AdminController extends Controller
         $new_user->password = Hash::make($request->input('password'));
         $new_user->role_id = $request->input('role_id');
         $new_user->save();
-        return redirect('/admin/home');
+        return redirect('/admin/manageusers');
     }
 
     public function edit($id)
@@ -62,12 +60,12 @@ class AdminController extends Controller
         $user->password = Hash::make($request->input('password'));
         $user->role_id = $request->input('role_id');
         $user->save();
-        return redirect('/admin/home');
+        return redirect('/admin/manageusers');
     }
 
     public function delete($id)
     {
         User::where('id', $id)->delete();
-        return redirect('/admin/home');
+        return redirect('/admin/manageusers');
     }
 }

@@ -33,7 +33,7 @@ class LoginController extends Controller
         $role_id = Auth::user()->role_id;
 
         if ($role_id === 1) {
-            return '/admin/home';
+            return '/admin/manageusers';
         } else if ($role_id === 2) {
             return '/top';
         } 

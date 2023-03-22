@@ -43,11 +43,6 @@ class LanguagesTableSeeder extends Seeder
         ]);
 
         Language::create([
-            'name' => 'PHP',
-            'colour' => '#4a17ef',
-        ]);
-
-        Language::create([
             'name' => 'Laravel',
             'colour' => '#3005c0',
         ]);

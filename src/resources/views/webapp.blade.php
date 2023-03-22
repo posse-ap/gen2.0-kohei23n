@@ -58,38 +58,12 @@
                 <h1 class="gakushu">学習言語</h1>
                 <canvas id="donut_lang"></canvas>
                 <div class="legend_cont_lang">
+                    @foreach ($all_languages as $language)
                     <div class="legend">
-                        <div class="legend_circle html_circle"></div>
-                        <p>HTML</p>
+                        <div class="legend_circle" style="background-color: {{ $language->colour }}"></div>
+                        <p>{{ $language->name }}</p>
                     </div>
-                    <div class="legend">
-                        <div class="legend_circle css_circle"></div>
-                        <p>CSS</p>
-                    </div>
-                    <div class="legend">
-                        <div class="legend_circle sql_circle"></div>
-                        <p>SQL</p>
-                    </div>
-                    <div class="legend">
-                        <div class="legend_circle shell_circle"></div>
-                        <p>Shell</p>
-                    </div>
-                    <div class="legend">
-                        <div class="legend_circle js_circle"></div>
-                        <p>Javascript</p>
-                    </div>
-                    <div class="legend">
-                        <div class="legend_circle other_circle"></div>
-                        <p>その他</p>
-                    </div>
-                    <div class="legend">
-                        <div class="legend_circle php_circle"></div>
-                        <p>PHP</p>
-                    </div>
-                    <div class="legend">
-                        <div class="legend_circle laravel_circle"></div>
-                        <p>Laravel</p>
-                    </div>
+                    @endforeach 
                 </div>
             </div>
 
@@ -97,18 +71,12 @@
                 <h1 class="gakushu">学習コンテンツ</h1>
                 <canvas id="donut_content"></canvas>
                 <div class="legend_cont_content">
+                    @foreach ($all_contents as $content)
                     <div class="legend">
-                        <div class="legend_circle n_circle"></div>
-                        <p>N予備校</p>
+                        <div class="legend_circle" style="background-color: {{ $content->colour }}"></div>
+                        <p>{{ $content->name }}</p>
                     </div>
-                    <div class="legend">
-                        <div class="legend_circle kadai_circle"></div>
-                        <p>課題</p>
-                    </div>
-                    <div class="legend">
-                        <div class="legend_circle dot_circle"></div>
-                        <p>ドットインストール</p>
-                    </div>
+                    @endforeach 
                 </div>
             </div>
         </div>
@@ -137,11 +105,11 @@
                             <h1 class="modal_title">学習コンテンツ（複数選択可）</h1>
                             <div class="option_cont">
                                 @foreach ($all_contents as $content)
-                                    <div class="option content_op" id="content{{ $content->id }}">
+                                    <div class="option content_op content_box">
                                         <input id="content_box{{ $content->id }}" name="content_value[]"
                                             value="{{ $content->id }}" type="checkbox" style="display: none">
                                         <label id="content_label{{ $content->id }}" for="content_box{{ $content->id }}"
-                                            class="circle_gray circle_content">
+                                            class="circle_gray circle_content content_labels">
                                             <div class="arrow_check"></div>
                                         </label>
                                         <p class="label">{{ $content->name }}</p>

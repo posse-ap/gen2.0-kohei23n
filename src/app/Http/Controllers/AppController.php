@@ -60,6 +60,7 @@ class AppController extends Controller
 
     public function create(Request $request)
     {
+        $user_id = Auth::user()->id;
 
         $request->validate([
             'study_date' => 'required',
@@ -83,7 +84,7 @@ class AppController extends Controller
             } elseif (count($content_array) > 1 && count($lang_array) === 1) {
                 foreach ($content_array as $content) {
                     $record->create([
-                        'user_id' => Auth::user()->id,
+                        'user_id' => $user_id,
                         'study_date' => $request->input('study_date'),
                         'study_time' => $study_time / count($content_array),
                         'content_id' => $content,
@@ -94,7 +95,7 @@ class AppController extends Controller
             } elseif (count($lang_array) > 1 && count($content_array) === 1) {
                 foreach ($lang_array as $lang) {
                     $record->create([
-                        'user_id' => Auth::user()->id,
+                        'user_id' => $user_id,
                         'study_date' => $request->input('study_date'),
                         'study_time' => $study_time / count($lang_array),
                         'content_id' => $content_array[0],
@@ -104,7 +105,7 @@ class AppController extends Controller
             // それ以外（どちらも一つずつ選ぶ想定で）
             } else {
                 $record->create([
-                    'user_id' => Auth::user()->id,
+                    'user_id' => $user_id,
                     'study_date' => $request->input('study_date'),
                     'study_time' => $study_time / count($lang_array),
                     'content_id' => $content_array[0],

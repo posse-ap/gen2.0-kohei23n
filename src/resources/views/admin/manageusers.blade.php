@@ -2,7 +2,16 @@
 
 @section('content')
     <div class="admin_container">
-        <h2>ユーザー管理</h2>
+        <nav>
+            <ul class="nav nav-tabs">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">ユーザー管理</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/managecontent">コンテンツ管理</a>
+                </li>
+            </ul>
+        </nav>
         <form action="" method="POST">
             @csrf
             <table>
